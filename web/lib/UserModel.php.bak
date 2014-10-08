@@ -1,0 +1,27 @@
+<?php
+
+class UserModel {
+
+    private $dao;
+
+    public function UserModel ($dao) {
+        $this->dao = $dao;
+    }
+
+    public function listUsers($start=1, $rows=50) {
+        $this->dao->fetch("SELECT * FROM products LIMIT ".$start.", ".$rows);
+    }
+
+    public function listUser($id) {
+        $this->dao->fetch("SELECT * FROM products WHERE PRODUCTID='".$id."'");
+    }
+
+    public function getUser() {
+        if ( $product=$this->dao->getRow() )
+            return $product;
+        else
+            return false;
+    }
+}
+
+?>

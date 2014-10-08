@@ -1,0 +1,738 @@
+body
+{
+	font-family: Verdana, Arial;
+	font-size:xx-small;
+	margin:	0px;
+	border: 0px;
+	margin-left:0px;
+	margin-top:0px;
+	padding:0px;
+	padding-left:0px;
+	padding-top:0px;
+
+   
+	cursor: default;
+	/*
+	scrollbar-face-color: #FFF;
+	scrollbar-highlight-color:#FFF;
+	scrollbar-3dlight-color: #0066CC;
+	scrollbar-darkshadow-color: #FFFFFF;
+	scrollbar-shadow-color: #0066CC;
+	scrollbar-arrow-color: #0066CC;
+	scrollbar-track-color: #FFFFFF;
+
+     */
+	
+}
+
+/*页标头样式 */
+.HeadLogin
+{
+	height:20px;
+	font-family:宋体;
+	font-size:12px;
+	
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#A9A9A9', endColorStr='#ffffff', gradientType='1');
+
+	
+	 
+}
+
+/*页标头样式 */
+.PageHead
+{
+	
+	font-family:宋体;
+	font-size:20px;
+	FONT-WEIGHT: bold;
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#A9A9A9', endColorStr='#D3D3D3', gradientType='1');
+
+	
+	 
+}
+
+/*页尾样式*/
+.PageTail
+{
+	
+	font-family:宋体;
+	font-size:12px;
+	
+	background-color: Lavender;
+	
+	
+	 
+}
+
+
+/* 主表格样式*/
+.mainTable
+{
+	font-family:宋体;
+	font-size:12px;
+	width:780px;
+
+	
+}
+/*从属表格样式 */
+.subTable
+{
+	font-family:宋体;
+	font-size:12px;
+	width:100%;
+	
+}
+
+/*从属表格样式 */
+.subBodyTable
+{
+	
+	font-family:宋体;
+	font-size:12px;
+	width:100%;
+	border-top:#DBDAC9 1px solid;
+	border-bottom:#DBDAC9 1px solid;
+	border-left:#DBDAC9 1px solid;
+	border-right:#DBDAC9 1px solid;
+	
+	
+}
+
+/*固定表格样式 */
+.fixTable
+{
+	border-top:#DBDAC9 1px solid;
+	border-bottom:#DBDAC9 1px solid;
+	border-left:#DBDAC9 1px solid;
+	border-right:#DBDAC9 1px solid;
+	font-family:宋体;
+	font-size:12px;
+	
+	
+	
+}
+/*固定表格头样式*/
+.fixTableHead
+{
+	font-family:宋体;
+	font-size:12px;
+	FONT-WEIGHT: bold;
+    background-image:url(../image/common/toptoolright.gif);
+    BACKGROUND-REPEAT:repeat-x;
+	padding-left:3px;
+	padding-top:2px;
+	padding-bottom:2px;
+	/*background:#E9E7D7;*/
+	height:28;
+	
+}
+/* 主菜单表样式*/
+.MainMenuTable
+{
+	
+	font-family:宋体;
+	font-size:12px;
+	
+	
+}
+/*表格样式 */
+.grid
+{
+	/*table-layout:fixed;*/
+	
+	width:100%;
+	font-size:12px;
+	border: 1px solid #DBDAC9;
+}
+
+
+/*表格头样式 */
+.gridHeader
+{
+	 
+	 background-color:Lavender;
+	 height:24px;
+	 font-size:12px;
+	 font-weight:bold;
+	 color:Black;
+	 padding-left:5px;
+	 
+	
+}
+
+/* 表格脚样式*/
+.gridFooter
+{
+	background-color:Blue;
+
+	
+	
+}
+
+/*表格最后项样式 */
+.lastGridItem
+{	
+	font-family:宋体;
+	font-size:12px;
+	
+	padding-top: 1px; 
+	padding-left:5px;
+    margin-bottom: 1px; 
+   
+    height: 22px; 
+    /*
+   background-color: #FFFFFF;*/
+    
+	border-bottom-style:dotted;
+    border-bottom-width:1px;
+    border-bottom-color:#E9E7D7;
+}
+
+/*表格项样式 */
+.gridItem
+{	
+	font-family:宋体;
+	font-size:12px;
+	
+	padding-top: 1px; 
+	padding-left:5px;
+    margin-bottom: 1px; 
+   
+    height: 22px; 
+    
+    /*background-color: #FFFFFF;*/
+    
+	border-bottom-style:dotted;
+    border-bottom-width:1px;
+    border-bottom-color:#E9E7D7;
+
+ 
+}
+
+/*表格项样式 */
+.gridItem1
+{	
+	font-family:宋体;
+	font-size:12px;
+	
+	padding-top: 1px; 
+	padding-left:5px;
+    margin-bottom: 1px; 
+   
+    height: 22px; 
+    
+    /*background-color: #FFFFFF;*/
+    
+	border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color:#E9E7D7;
+    
+    border-left-style:solid;
+    border-left-width:1px;
+    border-left-color:#E9E7D7;
+        border-top-style:solid;
+    border-top-width:1px;
+    border-top-color:#E9E7D7;
+        border-right-style:solid;
+    border-right-width:1px;
+    border-right-color:#E9E7D7;
+
+ 
+}
+
+
+/* 表格间格项样式*/
+.gridAlternatingItem
+{
+	font-family:宋体;
+	font-size:12px;
+	padding-top: 1px; 
+	padding-left:5px;
+    margin-bottom: 1px; 
+    height: 24px; 
+    background-color:#f1f1f1;
+}
+/*表格项激活样式 */
+.gridItemOver
+{
+	padding-top: 1px; 
+	padding-left:5px;
+    margin-bottom: 1px; 
+    height: 24px; 
+    font-size:12px;
+	background-color: #CAD3E4;
+}
+
+/*单元格边框样式 */
+.cellBordy
+{
+	border-top:#DBDAC9 1px solid;
+	border-bottom:#DBDAC9 1px solid;
+	border-left:#DBDAC9 1px solid;
+	border-right:#DBDAC9 1px solid;
+}
+/*单元格边框样式 */
+.cellDotBordy
+{
+	border-top:#DBDAC9 1px dotted;
+	border-bottom:#DBDAC9 1px dotted;
+	border-left:#DBDAC9 1px dotted;
+	border-right:#DBDAC9 1px dotted;
+}
+
+/*单元格左上边框样式 */
+.cellLeftTopBordy
+{
+	BORDER-TOP: #000000 0.5pt solid; 
+	BORDER-LEFT: #000000 0.5pt solid; 
+	FONT-SIZE: 10pt; 
+	FONT-STYLE: normal; 
+	FONT-FAMILY: 宋体; 
+	WORD-WRAP: break-word;
+}
+/*单元格右上边框样式 */
+.cellRightTopBordy
+{
+	BORDER-TOP: #000000 0.5pt solid; 
+	BORDER-LEFT: #000000 1px solid; 
+	BORDER-RIGHT: #000000 0.5pt solid; 	
+	FONT-SIZE: 10pt; 
+	FONT-STYLE: normal; 
+	FONT-FAMILY: 宋体; 
+	WORD-WRAP: break-word
+}
+/*单元格左下边框样式 */
+.cellLeftBottomBordy
+{
+	BORDER-TOP: #000000 0.5pt solid; 
+	BORDER-LEFT: #000000 0.5pt solid; 
+	BORDER-BOTTOM: #000000 0.5pt solid; 
+	FONT-SIZE: 10pt; 
+	FONT-STYLE: normal; 
+	FONT-FAMILY: 宋体; 
+	WORD-WRAP: break-word
+}
+/*单元格右下边框样式 */
+.cellRightBottomBordy
+{
+	BORDER-TOP: #000000 0.5pt solid; 
+	BORDER-LEFT: #000000 0.5pt solid; 
+	BORDER-RIGHT: #000000 0.5pt solid; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	FONT-SIZE: 10pt; 
+	FONT-STYLE: normal; 
+	FONT-FAMILY: 宋体; 
+	WORD-WRAP: break-word
+}
+
+/*单元格右下边框样式 */
+.cellLeftRightBordy
+{
+	BORDER-TOP: #000000 0.5pt solid; 
+	BORDER-LEFT: #000000 1pt solid; 
+	BORDER-RIGHT: #000000 1pt solid; 
+	BORDER-BOTTOM: #000000 0.5px solid; 
+	FONT-SIZE: 10pt; 
+	FONT-STYLE: normal; 
+	FONT-FAMILY: 宋体; 
+	WORD-WRAP: break-word
+}
+
+/* 菜单组样式*/
+.MenuGroupItem
+{
+	
+	font-family:宋体;
+	font-size:12px;
+	height:28px;
+	
+	
+
+	
+}
+/* 菜单组激活样式*/
+.MenuGroupItemOver
+{
+	
+	font-family:宋体;
+	font-size:13px;
+	height:28px;
+	
+	
+	
+	padding-top: 1px; 
+	
+	
+	border-left:1 solid white;
+	border-top:1 solid white;
+	border-right:1 solid buttonshadow;
+	border-bottom:1 solid buttonshadow;
+	
+	
+}
+/* 菜单项样式*/
+.MenuItem
+{
+	font-family:宋体;
+	font-size:12px;
+	color:#ffffff;
+
+}
+
+
+/*菜单项激活样式 */
+.MenuItemOver
+{
+	padding-top: 1px; 
+    margin-bottom: 1px; 
+    font-size:12px;
+  
+    font-weight:bold;
+    color:#ffffff;
+   
+    
+  
+}
+
+
+
+/*模块标题 */
+.ModuleTitle
+{
+	font-family:宋体;
+	font-size:12px;
+	FONT-WEIGHT: bold;
+}
+
+/*内容标题样式 */
+.ContentTitle
+{
+	height:24px;
+	font-family:宋体;
+	font-size:12px;
+	FONT-WEIGHT: bold;
+	background-color:Lavender;
+	color:Black;
+	
+	/*
+     background-image:url(../image/common/toptoolright.bmp);
+	BACKGROUND-REPEAT:repeat-x;
+	
+	font-size:15px;
+	 FONT-WEIGHT: bold;
+	 filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#D3D3D3', endColorStr='#ffffff', gradientType='0');
+	 padding-left: 5px;
+	*/
+	 
+}
+
+/*内容标题样式 */
+.ContentTitle2
+{
+	font-family:宋体;
+	font-size:12px;
+	FONT-WEIGHT: bold;
+}
+
+/*内容标题样式 */
+.ContentTitle3
+{
+	font-family:宋体;
+	font-size:16px;
+	FONT-WEIGHT: bold;
+}
+/* 普通内容样式*/
+.ContentItem
+{
+	font-family:宋体;
+	font-size:12px;
+	width: 82%;
+}
+/*页标头样式 */
+.TileUnderLine1
+{
+	height:1px;
+	font-family:宋体;
+	font-size:12px;
+	
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#008000', endColorStr='#008000', gradientType='1');
+
+	 
+}
+
+/*页标头样式 */
+.TileUnderLine2
+{
+	height:2px;
+	font-family:宋体;
+	font-size:12px;
+	
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='Gray', endColorStr='#ffffff', gradientType='1');
+
+	 
+}
+/*工具条背景*/
+.HeadToolBack
+{
+	
+	height:26px;
+	border-bottom:#7b9ebd 1px solid;
+		
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#D3D3D3', endColorStr='#ffffff', gradientType='0');
+/*
+	background-image:url(../image/common/toptoolright.gif);
+*/
+	BACKGROUND-REPEAT:repeat-x;
+	font-family:宋体;
+	font-size:12px;
+	padding-left:5px;
+	text-align: left;
+}
+
+/*工具条背景*/
+.HeadToolBack1
+{
+	
+	height:26px;
+	border-bottom:#7b9ebd 1px solid;
+		
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#D3D3D3', endColorStr='#ffffff', gradientType='0');
+/*
+	background-image:url(../image/common/toptoolright.gif);
+*/
+	BACKGROUND-REPEAT:repeat-x;
+	font-family:宋体;
+	font-size:12px;
+	padding-left:5px;
+	text-align: left;
+}
+
+/*工具按纽样式*/
+.HeadToolButton
+{
+    background-image: url(../images/common/StandardButton.gif);
+	
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style:none;
+    background-color:Transparent;
+    font-family:宋体;
+	font-size:12px;
+	
+	cursor:hand;
+	
+    BACKGROUND-REPEAT: no-repeat;
+    WIDTH: 72px;
+    height:21px;
+ 
+}
+
+.HeadToolButtonMid
+{
+    background-image: url(../image/common/MiddleButton.gif);
+	
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style:none;
+    background-color:Transparent;
+    font-family:宋体;
+	font-size:12px;
+	
+	cursor:hand;
+	
+    BACKGROUND-REPEAT: no-repeat;
+    WIDTH: 88px;
+    height:21px;
+ 
+}
+
+.HeadToolButtonBig
+{
+    background-image: url(../image/common/BigButton.gif);
+	
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style:none;
+    background-color:Transparent;
+    font-family:宋体;
+	font-size:12px;
+	
+	cursor:hand;
+	
+    BACKGROUND-REPEAT: no-repeat;
+    WIDTH: 100px;
+    height:21px;
+ 
+}
+
+
+.HeadToolButtonSuperBig
+{
+    background-image: url(../image/common/SuperBigButton.gif);
+	
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style:none;
+    background-color:Transparent;
+    font-family:宋体;
+	font-size:12px;
+	
+	cursor:hand;
+	
+    BACKGROUND-REPEAT: no-repeat;
+    WIDTH: 130px;
+    height:21px;
+ 
+}
+
+/*按纽样式 */
+.button
+{
+	filter:	progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	cursor:	hand;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border:	1px solid #E9E7D7;
+	width:80px;
+	height:24px;
+	font-family:宋体;
+}
+
+/*文本输入框样式  */
+.inputFields
+{
+	font-size: 12px;
+	font-family: Verdana;
+	width: 100%;
+	height: 20px;
+	border: 1px solid #000000;
+}
+.labelFields
+{
+	font-size: 12px;
+	font-family: Verdana;
+	width: 100%;
+	height: 20px;
+	BORDER-TOP-STYLE: none;
+    BORDER-RIGHT-STYLE: none; 
+    BORDER-LEFT-STYLE: none; 
+    BORDER-BOTTOM-STYLE: none;
+}
+.inputNumber
+{
+	font-size: 12px;
+	font-family: Verdana;
+	text-align:right;
+	width: 100%;
+	height: 20px;
+	border: 1px solid #000000;
+}
+
+/*选择框样式 */
+.combo
+{
+	font-size: 12px;
+	width: 100%;
+	height: 19px;
+}
+/* 多行文本框样式*/
+.textArea
+{
+	font-size: 12px;
+	font-family: Verdana;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000000;
+}
+
+/*超链接样式*/
+
+.link1 a{ color:Black; text-decoration:none; font-family:宋体;
+	font-size:12px;}
+.link1 a:hover{ color:#008000; text-decoration:underline; }
+
+.link2 a{ color:Black; text-decoration:underline; font-family:宋体;
+	font-size:12px;}
+.link2 a:hover{ color:#008000; text-decoration:none; }
+
+/* ToolBar styles */
+table.toolBar
+{
+   table-layout:fixed;
+   width:100%;
+   /*border-color:#3b619c;
+   border-style:solid;
+   border-width:1px;*/
+   font-size:9pt;
+   height:24px;
+   background-image:url(../Image/frame/toolbar_bg.jpg);
+}
+
+span.toolBarItem
+{
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:4px;
+	cursor:hand
+}
+
+span.toolBarItemOver
+{
+	background-color:#ffe3af
+}
+
+span.toolBarSep
+{
+	color:Gray;
+	padding:2px;
+}
+
+.td
+{
+    FONT-SIZE: 12px
+}
+
+/*文本输入框样式  */
+.inputFields1
+{
+	font-size: 12px;
+	font-family: Verdana;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000000;
+}
+
+.txtNoRight
+ {
+	font-size: 12px;
+	font-family: Verdana;
+	BORDER-TOP: black 1px solid; 
+	BORDER-LEFT: black 1px solid; 
+	BORDER-BOTTOM: 1px solid; 
+	BORDER-RIGHT-STYLE: none;
+	width:100%;
+	height:100%
+	}
+	
+.txtNoLeft
+ {
+	font-size: 12px;
+	font-family: Verdana;
+	BORDER-TOP: black 1px solid; 
+	BORDER-RIGHT: black 1px solid; 
+	BORDER-BOTTOM: 1px solid; 
+	BORDER-RIGHT-STYLE: none;
+	width:100%;
+	height:100%
+}
+		
+		

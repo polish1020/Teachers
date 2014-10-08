@@ -1,0 +1,26 @@
+
+/*管理员*/
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer`,`teaDbUser`, `teaDbPassword` ) VALUES('管理员','System Administrator','admin','135','common','db_common','localhost','exam','fcding');
+
+
+/*教师数据*/
+
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer`,`teaDbUser`, `teaDbPassword` ) VALUES('陈建海','Jianhai Chen','0097277','000','cjh','db_cjh','localhost','exam','fcding');
+
+
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer` , `teaDbUser`,`teaDbPassword` ) VALUES('冯晓霞','Xiaoxia Feng','fxx','000','fxx','db_fxx','localhost','exam','fcding');
+
+
+
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer`, `teaDbUser`, `teaDbPassword` ) VALUES('陆汉权','Hanquan Lu','lhq','000','lhq','db_lhq','localhost','exam','fcding');
+
+
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer` ,`teaDbUser`, `teaDbPassword` ) VALUES('方宁','Ning Fang','fn','000','fn','db_fn','localhost','exam','fcding');
+
+
+insert into db_common.`T_Teacher`(  `teaName`,  `teaEnName` ,  `teaWorkNum` ,  `teaPasswd`,  `teaDirName` ,  `teaDbName` ,  `teaDbServer`,`teaDbUser`, `teaDbPassword` ) VALUES('沈钦仙','Qinxian Shen','sqx','000','sqx','db_sqx','localhost','exam','fcding');
+
+
+
+
+

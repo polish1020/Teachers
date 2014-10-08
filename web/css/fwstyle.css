@@ -1,0 +1,404 @@
+BODY
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 13px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: 宋体;
+    SCROLLBAR-HIGHLIGHT-COLOR: #c2ed9c;
+    SCROLLBAR-SHADOW-COLOR: #ffffff;
+    SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+    SCROLLBAR-ARROW-COLOR: #c2ed9c;
+    PADDING-TOP: 0px;
+    SCROLLBAR-TRACK-COLOR: #e9fedc;
+    FONT-FAMILY: 宋体;
+    SCROLLBAR-BASE-COLOR: #ffffff;
+    scrollbar-dark-shadow-color: #ffffff
+   
+}
+SELECT
+{
+    border-style: none;
+	border-color: inherit;
+	border-width: medium;
+	padding: 1px;
+	FONT-SIZE: 12px;
+    	MARGIN: 0px;
+    	FONT-FAMILY: 宋体;
+    	BACKGROUND-COLOR: #d4f5ff;
+	width: 170px;
+}
+TABLE
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 13px;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: 宋体
+}
+TR
+{
+    BORDER-RIGHT: 20px;
+    BORDER-TOP: 20px;
+    BORDER-LEFT: 20px;
+    BORDER-BOTTOM: 20px;
+    FONT-FAMILY: 宋体
+}
+TD
+{
+    FONT-FAMILY: 宋体
+    FONT-SIZE: 13px;
+	text-align: center;
+}
+.tr2
+{
+    FONT-SIZE: 13px;
+    FONT-FAMILY: 宋体;
+    HEIGHT: 19px;
+    BACKGROUND-COLOR: #d4f5ff
+}
+A:active
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:link
+{
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+TEXTAREA
+{
+    BORDER-RIGHT: #235e9f 1px solid;
+    BORDER-TOP: #558eb7 3px solid;
+    FONT-SIZE: 12px;
+    BORDER-LEFT: #558eb7 2px solid;
+    BORDER-BOTTOM: #235e9f 1px solid;
+    SCROLLBAR-BASE-COLOR: #ffffff;
+    scrollbar-dark-shadow-color: #ffffff;
+   
+
+}
+TEXTAREA INPUT
+{
+    FONT-SIZE: 12px;
+    FONT-FAMILY: @宋体;
+    BACKGROUND-COLOR: #d4f5ff;
+
+}
+P
+{
+    FONT-SIZE: 13px
+}
+.tr13p
+{
+    FONT-SIZE: 13px;
+    FONT-FAMILY: 宋体;
+    BACKGROUND-COLOR: #e6f606
+}
+DIV
+{
+    FONT-SIZE: 13px
+}
+.tr1
+{
+    FONT-SIZE: 13px;
+    FONT-FAMILY: 宋体;
+    HEIGHT: 19px;
+    BACKGROUND-COLOR: #e6f606;
+	text-align: center;
+	font-weight: 700;
+}
+.tr12px
+{
+    FONT-SIZE: 12px
+}
+.tr13px
+{
+    FONT-SIZE: 13px
+}
+.clotd
+{
+    FONT-SIZE: 13px;
+    COLOR: #313ac7
+}
+.htr
+{
+    HEIGHT: 20px
+}
+.gp
+{
+    FONT-SIZE: 17px;
+    FONT-FAMILY: 华文行楷
+}
+.txt
+{
+    BORDER-RIGHT: #235e9f 1px solid;
+    BORDER-TOP: #558eb7 2px solid;
+    FONT-SIZE: 12px;
+    BORDER-LEFT: #558eb7 2px solid;
+    BORDER-BOTTOM: #235e9f 1px solid;
+    BACKGROUND-COLOR: #d4f5ff
+}
+TT
+{
+    BACKGROUND-COLOR: #d4f5ff
+}
+TEXT
+{
+    BACKGROUND-COLOR: green
+}
+PLAINTEXT
+{
+    BACKGROUND-COLOR: blue
+}
+.tim
+{
+    FONT-SIZE: 12px;
+    BACKGROUND-COLOR: #d4f5ff
+}
+.tr16px
+{
+    FONT-SIZE: 14px;
+    FONT-FAMILY: 宋体
+}
+.trbg
+{
+    BACKGROUND-IMAGE: url('file:images/tab.jpg');
+    HEIGHT: 18px
+}
+.ItemFont
+{
+    FONT-SIZE: 24px;
+    FONT-FAMILY: "华文新魏"
+}
+.tr3
+{
+    FONT-FAMILY: 宋体;
+    HEIGHT: 20px;
+    BACKGROUND-COLOR: #e6f606
+}
+.tr4
+{
+    HEIGHT: 19px;
+    BACKGROUND-COLOR: #d4f5ff
+}
+.btn1
+{
+    border:0px none; BACKGROUND-IMAGE: url('../define/images1/addtype.gif');
+    WIDTH: 73px;
+    CURSOR: hand;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 22px;
+    BACKGROUND-COLOR: transparent
+}
+.btn2
+{
+    border:0px none; BACKGROUND-IMAGE: url('../define/images1/addtype100.gif');
+    WIDTH: 100px;
+    CURSOR: hand;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 22px;
+    BACKGROUND-COLOR: transparent
+}
+.btn1Select
+{
+    border:0px none; BACKGROUND-IMAGE: url('../define/images1/btnchange.gif');
+    WIDTH: 73px;
+    CURSOR: hand;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 22px;
+    BACKGROUND-COLOR: transparent
+}
+.btnAct
+{
+    border:0px none; BACKGROUND-IMAGE: url('../define/images1/Actbtn0.gif');
+    WIDTH: 70px;
+    CURSOR: hand;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 23px;
+    BACKGROUND-COLOR: transparent
+}
+.btnAct1
+{
+    border:0px none; BACKGROUND-IMAGE: url('../define/images1/Actbtn1.gif');
+    WIDTH: 70px;
+    CURSOR: hand;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 23px;
+    BACKGROUND-COLOR: transparent
+}
+.btnStandard
+{
+    border-style:none; FONT-SIZE: 13px;
+    BACKGROUND-IMAGE: url('../docuflow/images/button.jpg');
+    WIDTH: 63px;
+    CURSOR: hand;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 21px;
+    BACKGROUND-COLOR: transparent;
+    
+}
+.btnLittle
+{
+    border-style:none; FONT-SIZE: 13px;
+    BACKGROUND-IMAGE: url('../docuflow/images/button2.gif');
+    WIDTH: 28px;
+    CURSOR: hand;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 19px;
+    BACKGROUND-COLOR: transparent;
+    
+}
+.btnStandardDis
+{
+    border-style:none; FONT-SIZE: 13px;
+    BACKGROUND-IMAGE: url('../docuflow/images/button.jpg');
+    WIDTH: 63px;
+    PADDING-TOP: 3px;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 21px;
+    BACKGROUND-COLOR: transparent;
+    
+}
+.treetr
+{
+    FONT-SIZE: 13px;
+    FONT-FAMILY: 宋体
+}
+.f14
+{
+    FONT-SIZE: 14px
+}
+.fontA
+{
+    FONT-SIZE: 9pt
+}
+.aE
+{
+    COLOR: red;
+    TEXT-DECORATION: none
+}
+.aE:hover
+{
+    COLOR: red;
+    TEXT-DECORATION: none
+}
+.aE:visited
+{
+    COLOR: #518dc9
+}
+.aC
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+.aC:hover
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+.aC:visited
+{
+    COLOR: #518dc9
+}
+
+.boxUp
+{
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonhighlight 2px solid;
+    PADDING-LEFT: 2px;
+    BORDER-LEFT: buttonhighlight 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}
+.boxDown
+{
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonshadow 2px solid;
+    PADDING-LEFT: 2px;
+    BORDER-LEFT: buttonshadow 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonhighlight 2px solid
+}
+.boxOnlyBottom
+{
+    PADDING-BOTTOM: 2px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}
+.box
+{
+    BORDER-RIGHT: buttonshadow 2px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonhighlight 2px solid;
+    PADDING-LEFT: 2px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: buttonhighlight 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}
+.boxNoBottom
+{
+    BORDER-RIGHT: buttonshadow 2px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonhighlight 2px solid;
+    PADDING-LEFT: 2px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonhighlight 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 0px solid
+}
+.boxNoTop
+{
+    BORDER-RIGHT: buttonshadow 2px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonhighlight 0px solid;
+    PADDING-LEFT: 2px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: buttonhighlight 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}
+.boxNoLeft
+{
+    BORDER-RIGHT: buttonshadow 2px solid;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: buttonhighlight 2px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: buttonhighlight 0px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}
+.boxNoRight
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonhighlight 2px solid;
+    PADDING-LEFT: 2px;
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: buttonhighlight 2px solid;
+    CURSOR: default;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 2px solid
+}

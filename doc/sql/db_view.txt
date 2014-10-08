@@ -1,0 +1,175 @@
+
+
+use db_common;
+
+###################################################################
+#
+# View structure for view V_UserInfo_Tea
+#
+###################################################################
+
+
+DROP VIEW IF EXISTS `V_UserInfo_Tea`;
+
+CREATE VIEW `V_UserInfo_Tea` AS 
+
+/*For Admin*/
+select teaID as uID,teaName as uName,teaPasswd as uPwd,
+ teaWorkNum as uNum,'adm' as uType,teaStatus as uStatus 
+from db_common.T_Teacher where IsAdmin=1
+
+union
+
+/*For Teacher*/
+select teaID as uID,teaName as uName,teaPasswd as uPwd,
+ teaWorkNum as uNum,'tea' as uType,teaStatus as uStatus 
+from db_common.T_Teacher where IsAdmin=0
+
+
+;
+
+
+###################################################################
+#
+# View structure for view V_UserInfo_Stu_01
+#
+###################################################################
+
+
+DROP VIEW IF EXISTS `V_UserInfo_Stu_01`;
+
+CREATE VIEW `V_UserInfo_Stu_01` AS 
+
+
+/*This is for teacher cjh*/
+select stuID as uID,stuName as uName,stuPasswd as uPwd,
+ stuNumber as uNum,'stu' as uType,`stuStatus` as uStatus 
+from db_cjh.T_Student 
+
+/* 
+If there are any other teachers, use union to combine it.
+*/
+
+;
+
+###################################################################
+#
+# View structure for view V_UserInfo_Stu_02
+#
+###################################################################
+
+
+DROP VIEW IF EXISTS `V_UserInfo_Stu_02`;
+
+CREATE VIEW `V_UserInfo_Stu_02` AS 
+
+
+/*This is for teacher lhq*/
+select stuID as uID,stuName as uName,stuPasswd as uPwd,
+ stuNumber as uNum,'stu' as uType,`stuStatus` as uStatus 
+from db_lhq.T_Student 
+
+/* 
+If there are any other teachers, use union to combine it.
+*/
+
+
+;
+
+
+###################################################################
+#
+# View structure for view V_UserInfo
+#
+###################################################################
+
+DROP VIEW IF EXISTS `V_UserInfo`;
+
+CREATE VIEW `V_UserInfo` AS 
+
+select * from db_common.V_UserInfo_Tea
+
+union
+
+select * from db_common.V_UserInfo_Stu_01
+
+
+union
+
+select * from db_common.V_UserInfo_Stu_02
+
+;
+
+#######################okoko=====================================
+
+
+
+###################################################################
+#
+# View structure for view V_UserCourceInfo_01
+#
+
+DROP VIEW IF EXISTS `V_UserCourceInfo_01`;
+
+CREATE VIEW `V_UserCourceInfo_01` AS 
+
+/*This is for teacher cjh*/
+
+select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPWD`,
+`b`.`techID` AS `techID`,`t`.`techEnName`,`t`.`techName`,
+`c`.`classID`,`c`.`className`,`b`.`coID`,`b`.`coName`,
+`b`.`coYear`,`b`.`coTerm` 
+from (((((
+    `db_cjh`.`T_Student` `a`  
+    join `db_cjh`.`T_Cource` `b`) 
+    join `db_cjh`.`T_Class` `c`) 
+    join  `db_cjh`.`T_RelClassStudent` `cs`) 
+    join  `db_cjh`.`T_RelCourceClass` `cc`) 
+    join `T_Teacher` `t`)
+where ((`cc`.`coID` = `b`.`coID`) 
+	and (`cc`.`classID` = `c`.`classID`) 
+	and (`cs`.`classID` = `c`.`classID`) 
+	and (`cs`.`stuID` = `a`.`stuID`) 
+	and (`b`.`techID` = `t`.`techID`))
+
+ /*For every teacher, add a union*/
+union
+#
+#This if for teacher lhq
+#
+select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPWD`,
+`b`.`techID` AS `techID`,`t`.`techEnName`,`t`.`techName`,
+`c`.`classID`,`c`.`className`,`b`.`coID`,`b`.`coName`,
+`b`.`coYear`,`b`.`coTerm` 
+from (((((
+    `db_luhq`.`T_Student` `a`  
+    join `db_luhq`.`T_Cource` `b`) 
+    join `db_luhq`.`T_Class` `c`) 
+    join  `db_luhq`.`T_RelClassStudent` `cs`) 
+    join  `db_luhq`.`T_RelCourceClass` `cc`) 
+    join `T_Teacher` `t`)
+where ((`cc`.`coID` = `b`.`coID`) 
+	and (`cc`.`classID` = `c`.`classID`) 
+	and (`cs`.`classID` = `c`.`classID`) 
+	and (`cs`.`stuID` = `a`.`stuID`) 
+	and (`b`.`techID` = `t`.`techID`));
+
+
+ /*For every teacher, add a union*/
+
+
+###############
+
+;
+#
+# View structure for view V_UserCourceInfo
+# This view is used to check the validality when user login the system
+#
+
+DROP VIEW IF EXISTS `V_UserCourceInfo`;
+
+CREATE  VIEW `V_UserCourceInfo` AS 
+select * from `V_UserCourceInfo_01`
+;
+
+
