@@ -84,6 +84,7 @@ if(!isset($_SESSION['uNum'])){
 									<script>
 										function change(){										
 											var url="newcourse.php?course="+newcourse.courseName.value+"";
+											//alert(url);
 											window.location.href=url;
 											window.location.reload; 
 										}

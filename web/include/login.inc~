@@ -1,5 +1,5 @@
 	<h3 align="center">用户登录</h3>
-	<form id="loginform" class="well" method="POST" action="./login/checkuser.php" target="fracheck">
+	<form id="loginform" class="well" method="POST" action="./login/checkuser.php" target="_blank">
 		<input name="userNum" id="userNum" type="text" class="span2" placeholder="UserName" /><br />
 		<input name="userPwd" id="userPwd" type="password" class="span2" placeholder="Password" /><br />
 		<label class="checkbox"> <input type="checkbox" /> Remember me </label>

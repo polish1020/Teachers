@@ -6,6 +6,5 @@ $(document).ready(function(){
 $(function(){
 	$("#save").click(function(){
 		alert($("#coBH").attr("name"));
-
 	});
 });

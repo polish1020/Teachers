@@ -37,18 +37,34 @@
 	*/
     
     mysql_select_db("db_common");
-	$query="select * from V_UserInfo where uNum='".$unum."'";	
+
+	$query="select * from V_UserInfo where uNum='".$unum."'";
+	
+	//echo $query."<br>";
+
 	$res=mysql_query($query,$con);
-	if(!$res){
-		echo mysql_error();
+	
+	if(!$res)
+		{
+			echo mysql_error();
+			exit;
+		}
+	
+	if(mysql_num_rows($res)==0)
+	{
+		echo "<script language=javascript>alert('用户不存在');</script>";
+   
 		exit;
-	}
-	if(mysql_num_rows($res)==0){
-		echo "<script language=javascript>alert('用户不存在');</script>";  
-		exit;
-	}//end if 	
+	}//end if 
+	
+	//echo "<script language=javascript>alert('请输入用户名5');</script>";
+	
 	$row=mysql_fetch_array($res);
+
 	$pwd1=$row["uPwd"];
+
+	echo "sys_passwd:".$pwd1."<br>";
+
 	if($pwd1!=$pwd)
 	{
 		echo "<script language=javascript>alert('密码不正确');</script>";
@@ -83,15 +99,17 @@
 	$_SESSION["utype"]=$utyp;
 	$_SESSION["telephone"]=$telephone;
 
+
 	include_once('../common/closeconnection.php');
-
 	if($utyp=="stu")
+		//echo "<script language=javascript>window.parent.navigate(\"../index_stu.php\");</script>";
 		echo "<script language=javascript>window.top.location=\"../index/index_stu.php?uid=".$uid."\"; ;</script>";
-
+//		header("Location:../index_stu.php");	
 	else if($utyp=="tea")
 		echo "<script language=javascript>window.top.location=\"../index/index_tea.php?uid=".$uid."\"; ;</script>";
-
+		//header("Location:../index_tea.php");	
 	else if($utyp=="adm")
 		echo "<script language=javascript>window.top.location=\"../index/index_adm.php?uid=".$uid."\"; ;</script>";
-
+		//echo "<script language=javascript>window.parent.navigate(\"../index_adm.php\");</script>";
+//		header("Location:../index_adm.php");	
 ?>
