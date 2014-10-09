@@ -18,11 +18,12 @@
 		
 			<div><img src="./image/logo.gif" style="width:100%"></div>
 			<!--菜单-->
-						<!--菜单-->
+			
 			<?php 
 			include_once './include/menu_navibar_default.inc'; 
 			?>
-		
+			 <!--菜单-->
+
 
 			<div class="row">
 				
