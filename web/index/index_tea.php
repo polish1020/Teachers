@@ -310,7 +310,9 @@ if(!isset($_SESSION['uNum'])||$_SESSION['utype']!="tea"){
 			</li>
 		</ul>
 		</div>
-		
+		<?php
+            include_once("../include/footer.php");
+        ?>
 
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>

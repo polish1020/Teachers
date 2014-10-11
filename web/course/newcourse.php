@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['uNum'])){
-	header("location: index.php");
+	header("location: ../index.php");
 	exit;
 }
 ?>
@@ -10,7 +10,7 @@ if(!isset($_SESSION['uNum'])){
 <html lang="en"><!--<![endif]--> 
 	<head>
 		<meta charset="utf-8">
-		<title>Profile - <?php echo $_SESSION['uName']; ?></title>
+		<title>课程管理 - <?php echo $_SESSION['uName']; ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@ if(!isset($_SESSION['uNum'])){
 								<label class="control-label" for="courseName">从公共课模版创建</label>
 								<div class="controls">
 
-									<select class="form-control" id="courseName" onChange="change();">
+									<select class="form-control popover-dismiss" id="courseName" onChange="change();" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择课程名称">
 										<?php											
 											while($res=mysql_fetch_array($sql)){
 												if($res['ccName']==$course){
@@ -103,7 +103,7 @@ if(!isset($_SESSION['uNum'])){
 									if(!($res=mysql_fetch_array($sql))){
 										//echo "Error4: No result";
 									}
-									echo "<input type='text' class='form-control' id='coBH' name='".$res['ccID']."' value='".$res['ccBH']."' />";
+									echo "<input type='text' class='form-control popover-dismiss' id='coBH' name='".$res['ccID']."' value='".$res['ccBH']."' data-container='body' data-toggle='popover' data-placement='right' data-content='请填写课程编号' />";
 								?>
 								</div>
 							</div>
@@ -111,14 +111,14 @@ if(!isset($_SESSION['uNum'])){
 								<label class="control-label" for="coName">课程名称</label>
 								<div class="controls">
 								<?php
-									echo "<input type='text' class='form-control' id='coName' name='coName' value='".$res['ccName']."' />";
+									echo "<input type='text' class='form-control popover-dismiss' id='coName' name='coName' value='".$res['ccName']."' data-container='body' data-toggle='popover' data-placement='right' data-content='请填写课程名称' />";
 								?>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="coYear">开课学年</label>
 								<div class="controls">
-									<select class="form-control" id="coYear" name="coYear" >
+									<select class="form-control popover-dismiss" id="coYear" name="coYear" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择开课学年">
 										<option id="2001">2001-2002</option>
 										<option id="2002">2002-2003</option>
 										<option id="2003">2003-2004</option>
@@ -140,21 +140,21 @@ if(!isset($_SESSION['uNum'])){
 							<div class="control-group">
 								<label class="control-label" for="coTerm">开课学期</label>
 								<div class="controls">
-									<select class="form-control" id="coTerm" name="coTerm" >
+									<select class="form-control popover-dismiss" id="coTerm" name="coTerm" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择开课学期">
 										<option >春</option>
 										<option >夏</option>
 										<option >春夏</option>
 										<option >秋</option>
 										<option >冬</option>
 										<option selected>秋冬</option>
-										<option >秋冬</option>
+										<option >短</option>
 									</select>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="coDept">所在学院</label>
+								<label class="control-label popover-dismiss" for="coDept">所在学院</label>
 								<div class="controls">
-									<select class="form-control" id="coDept" name="coDept" >
+									<select class="form-control popover-dismiss" id="coDept" name="coDept" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择开课学院">
 										<option>计算机学院</option>
 									</select>
 								</div>
@@ -163,7 +163,7 @@ if(!isset($_SESSION['uNum'])){
 								<label class="control-label" for="coPrecis">标签</label>
 								<div class="controls">
 									<?php
-										echo "<input type='text' class='form-control' id='coPrecis' name='coPrecis' value='".$res['ccPrecis']."' />";
+										echo "<input type='text' class='form-control popover-dismiss' id='coPrecis' name='coPrecis' value='".$res['ccPrecis']."' data-container='body' data-toggle='popover' data-placement='right' data-content='请填写课程标签' />";
 									?>
 								</div>
 							</div>
@@ -173,7 +173,7 @@ if(!isset($_SESSION['uNum'])){
 								<div class="controls">
 									
 									<?php
-										echo "<textarea class='form-control' id='coNote' name='coNote' rows='6' cols='10'>".$res['ccNote']."</textarea>";
+										echo "<textarea class='form-control popover-dismiss' id='coNote' name='coNote' rows='6' cols='10' data-container='body' data-toggle='popover' data-placement='right' data-content='请填写课程介绍'>".$res['ccNote']."</textarea>";
 									?>
 								</div>
 							</div>
@@ -182,7 +182,7 @@ if(!isset($_SESSION['uNum'])){
 								<label class="control-label" for="coCalender">课程大纲</label>
 								<div class="controls">
 									<?php
-										echo "<textarea class='form-control' id='coCalender' name='coCalender' rows='6' cols='10'>".$res['ccCalender']."</textarea>";
+										echo "<textarea class='form-control popover-dismiss' id='coCalender' name='coCalender' rows='6' cols='10' data-container='body' data-toggle='popover' data-placement='right' data-content='请填写课程大纲'>".$res['ccCalender']."</textarea>";
 									?>
 								</div>
 							</div>
@@ -190,7 +190,10 @@ if(!isset($_SESSION['uNum'])){
 							<div class="control-group">
 								<label class="control-label" for="coStatus">立即生效</label>
 								<div class="controls">
-									<input type="checkbox" id="coStatus" name="coStatus" value="1" checked="checked" />
+									<select type="text" class="form-control popover-dismiss" id="coStatus" value="" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择课程状态">
+										<option id="1">开启</option> 
+                                        <option id="0">关闭</option>                                             
+                                    </select>
 								</div>
 							</div>	
 												
@@ -206,10 +209,11 @@ if(!isset($_SESSION['uNum'])){
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
-		<script type="text/javascript" src="newcourse.js"></script>
+		<script type="text/javascript" src="./newcourse.js"></script>
 		
 		<?php
 			include_once('../common/closeconnection.php'); 
+            include_once("../include/footer.php");
 		?>
 	</body>
 </html>

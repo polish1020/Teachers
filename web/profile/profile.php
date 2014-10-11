@@ -118,8 +118,11 @@ if(!isset($_SESSION['uNum'])){
 		<script src="../js/site.js"></script>
 		<script>
 		//改变导航栏样式
-			document.getElementById('index').className="";
-			document.getElementById('setting').className="active";
+			document.getElementById('index').className="dropdown";
+			document.getElementById('setting').className="active dropdown";
 		</script>
+        <?php
+            include_once("../include/footer.php");
+        ?>
 	</body>
 </html>

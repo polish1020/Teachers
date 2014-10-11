@@ -32,7 +32,7 @@
 				</li>
 				<li class="divider"></li>
 				<li>
-					<a href="help.htm">课程列表</a>
+					<a href="../course/CourseList.php">课程列表</a>
 				</li>
 				<li class="divider"></li>
 				<li>
@@ -125,3 +125,4 @@
 </div>
 </div>
 </div>
+
