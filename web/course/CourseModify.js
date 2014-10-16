@@ -48,6 +48,8 @@ $(document).ready(function(){
 
 $(function(){
     $("#save").click(function(){
+        var GET = $.urlGet();
+	    var coID = GET['coID'];
         var coBH = $("#coBH").val();
         var coName = $("#coName").val();
         var coYear = $("#coYear").val();
@@ -121,26 +123,26 @@ $(function(){
             }
         }
         $.ajax({
-            url: "new.php",
+            url: "CourseMangement.php",
             type: "POST",
             dataType: "json",
-            data: {Type:"UpdateCourse", BH:coBH, Name:coName, Term:coTerm, Dept:coDept, Note:coNote, Precis:coPrecis, Calendar:coCalendar, Status:coStatus},
+            data: {Type:"UpdateCourse", ID:coID, BH:coBH, Name:coName, Term:coTerm, Dept:coDept, Note:coNote, Precis:coPrecis, Calendar:coCalendar, Status:coStatus},
             error: function(XMLHttpRequuest, textStatus, errorThrown){
                 alert(XMLHttpRequuest.responseText);
                 alert(textStatus);
                 alert(errorThrown);
             },
             success: function(data, textStatus){
-                if(data.Result=="fail"){
+                if(data.Result=="Fail"){
                     alert(data.Info);
                 }
-                else if(data.Result=="success"){
+                else if(data.Result=="Success"){
                     alert(data.Info);
                     window.location.href = "CourseList.php";
                 }
             }
         });//End of ajax   
-    });
+    });//End of click
 });
 
 

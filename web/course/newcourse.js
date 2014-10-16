@@ -24,7 +24,7 @@ $(function(){
         var coNote = $("#coNote").val();
         var coCalender = $("#coCalender").val();
         var ccID = $("#coBH").attr("name");
-        //bug：coStatus总是为1
+        
         if($("#coStatus").val() == "开启"){
             var coStatus = 1;
         }

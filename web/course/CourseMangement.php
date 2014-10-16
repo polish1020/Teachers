@@ -94,6 +94,26 @@
         case "UpdateCourse":{
             $return = array("Type"=>"", "Result"=>"", "Info"=>"");
             $return['Type'] = "UpdateCourse";
+            $coID = $_POST["ID"];
+            $coBH = $_POST["BH"];
+            $coName = $_POST["Name"];
+            $coTerm = $_POST["Term"];
+            $coDept = $_POST["Dept"];
+            $coNote = $_POST["Note"];
+            $coPrecis = $_POST["Precis"];
+            $coCalendar = $_POST["Calendar"];
+            $coStatus = $_POST["Status"];
+
+            $query = "update t_course set coBH = '".$coBH."', coName = '".$coName."', coTerm = '".$coTerm."', coDept = '".$coDept."', coNote = '".$coNote."', coPrecis = '".$coPrecis."', coCalendar = '".$coCalendar."', coStatus = ".$coStatus." where coID = ".$coID."";
+            if ( !($res = mysql_query($query)) ){
+                $rerurn['Result'] = "Fail";
+                $return['Info'] = "Update error:".mysql_error();
+            }
+            else {
+                $return['Result'] = "Success";
+                $return['Info'] = "Update successfully";
+            }
+                
             break;
         }
 

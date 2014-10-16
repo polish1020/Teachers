@@ -61,9 +61,11 @@ if(!isset($_SESSION['uNum'])){
 					<h1>新增课程</h1>
 
 					<!--<iframe name="fracheck" style="width:0px;height:0px;display:none;"> </iframe>-->
-					<form id="newcourse" class="form-horizontal" action="new.php" method="POST"  target="fracheck">
+					<form id="newcourse" class="form-horizontal">
 						<fieldset>
-							<legend>编辑课程信息</legend>
+							<legend>编辑课程信息
+							    <div class="btn-group pull-right"><a href="CourseList.php"><button type="button" class="btn btn-primary" >返回课程列表</button></a></div>
+							</legend>
 							<div class="control-group">
 								<label class="control-label" for="courseName">从公共课模版创建</label>
 								<div class="controls">

@@ -80,6 +80,7 @@ if(!isset($_SESSION['uNum'])){
                                 <div><li><a>所有</a></li></div>
                             </ul>
                         </div><!--End of btn-group-->
+                        <div class="btn-group pull-right"><a href="newcourse.php?course=自定义课程"><button type="button" class="btn btn-primary" >新增课程</button></a></div>
                     </legend>
 
                     <div id="result">
