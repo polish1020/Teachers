@@ -4,7 +4,7 @@
     </head>
 
     <body>
-        <form action="CourseMangement.php" method="POST">
+        <form action="CourseConfig.php" method="POST">
             <input type="text" id="Type" name="Type" value="UpdateLecture">
             <input type="text" id="coID" name="coID" value="50">
             <input type="text" id="lectID" name="lectID" value="13">

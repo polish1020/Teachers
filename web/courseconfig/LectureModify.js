@@ -1,31 +1,58 @@
 $(document).ready(function(){
     $("#index").attr("class","dropdown");
 	$("#course").attr("class","active dropdown");
-	$('.popover-dismiss').popover({
-		trigger: 'manual'
-	});
-    $('.popover-dismiss').blur(function(){
-		$(this).popover('hide');
-	});
 	var GET = $.urlGet();
-    var ID = GET["coID"];
-	changeCourseName(ID);
+	var ID = GET['lectID'];
+	$.ajax({
+	    url: "CourseConfig.php",
+	    type: "POST",
+	    dataType: "json",
+	    data: { Type: "SelectLecture", lectID: ID },
+	    error: function( XMLHttpRequest, textStatus, errorThrown ){
+	        alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);    
+	    },
+	    success: function( data, textStatus ){
+	        if ( data.Result == "Fail" ){
+	            alert(data.Info);
+	        }
+	        else if ( data.Result == "Success" ){
+	            $("#lectNum").val(data.LectureArray.lectNum);
+	            $("#lectTitle").val(data.LectureArray.lectTitle);
+	            $("#lectNote").val(data.LectureArray.lectNote);
+	            $("#lectDesc").val(data.LectureArray.lectDesc);
+	            
+	            if ( data.LectureArray.lectStatus == 1 ){
+	                $("#lectStatus").val("开启");
+	            }
+	            else {
+	                $("#lectStatus").val("关闭");
+	            }
+	            
+	            var url = data.LectureArray.lectUrl;
+	            var array = url.split('/');
+	            var filename = array[8];
+	            $("#lectFile").val(filename);
+	            $("#coName").attr("name", url);
+	        }
+	    }
+	});
 });
 
-$(function(){ 
+$(function(){
     var GET = $.urlGet();
 	var ID = GET['coID'];
+	var lectureID = GET['lectID'];
     $("#back").click(function(){
         window.location.href = "Lecture.php?coID="+ID+"";
     });
     $("#save").click(function(){
-        var GET = $.urlGet();
-        var ID = GET["coID"];
         var Num = $("#lectNum").val();
         var Title = $("#lectTitle").val();
         var Note = $("#lectNote").val();
         var Desc = $("#lectDesc").val();
-        var Year = $("#coName").attr("name");
+        var Url = $("#coName").attr("name");
         if ( $("#lectStatus").val() == "开启" ){
             var Status = 1;
         }
@@ -33,7 +60,7 @@ $(function(){
             var Status = 0;
         }
         var File = $("#lectFile").val();
-        //alert(lectFile);
+        Desc = File + Desc;
         if ( Num =="" ){
             $('#lectNum').popover('show').focus();
 			return;
@@ -44,10 +71,6 @@ $(function(){
         }
         else if ( Note == "" ){
             $('#lectNote').popover('show').focus();
-			return;
-        }
-        else if ( Status == "" ){
-            $('#lectStatus').popover('show').focus();
 			return;
         }
         else if ( File == "" ){
@@ -70,26 +93,18 @@ $(function(){
             }
         }
         
-        $.ajaxFileUpload({
+        $.ajax({
             url: "CourseConfig.php",
-            secureuri: false,
-            fileElementId: "lectFile",
+            type: "POST",
             dataType: "json",
-            data: { Type: "AddLecture", lectNum: Num, lectTitle: Title, lectNote: Note, lectDesc: Desc, lectStatus: Status, FileID: "lectFile", coYear: Year, coID: ID },
+            data: { Type: "UpdateLecture", lectID: lectureID, lectUrl: Url, coID: ID, lectNum: Num, lectTitle: Title, lectNote: Note, lectDesc: Desc, lectStatus: Status },
             error: function( XMLHttpRequest, textStatus, errorThrown ){
                 alert(errorThrown);
                 alert(textStatus);
                 alert(XMLHttpRequest.responseText);
             },
             success: function( data, textStatus ){
-                //alert(data);
-                if ( data.Result == "FailStore" ){
-                    alert(data.Info);
-                }
-                else if ( data.Result == "Exist" ){
-                    alert(data.Info);
-                }
-                else if ( data.Result == "FailInsert" ){
+                if ( data.Result == "Fail" ){
                     alert(data.Info);
                 }
                 else if ( data.Result == "Success" ){
@@ -98,36 +113,12 @@ $(function(){
                 }
             }
         });
-        
     });
-
-    
 });
 
-function changeCourseName(ID){
-    
-    $.ajax({
-        url: "../course/CourseMangement.php",
-        type: "POST",
-        dataType: "json",
-        data: {Type: "SelectCourse", coID: ID},
-        error: function( XMLHttpRequest, textStatus, errorThrown ){
-            alert(errorThrown);
-            alert(textStatus);
-            alert(XMLHttpRequest.responseText);
-        },
-        success: function( data, textStatus ){
-            if ( data.Result == "Fail" ){
-                alert(data.Info);
-            }
-            else if ( data.Result == "Success" ){
-                //alert(data.Info);
-                $("#coName").html(data.CourseArray.coName+"("+data.CourseArray.coYear+data.CourseArray.coTerm+")");   
-                $("#coName").attr("name",data.CourseArray.coYear);                     
-            }
-        }
-    });
-}
+
+
+
 
 
 

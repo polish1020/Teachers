@@ -60,7 +60,7 @@ if(!isset($_SESSION['uNum'])){
                                 <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >添加课件</button></div>
                             </ul>
                             
-                        <table class="table table-striped">
+                        <table class="table table-striped table-hover">
                             <caption id="tabletitle"></caption>
                             <thead>
                                 <tr id="tablehead">
@@ -68,6 +68,7 @@ if(!isset($_SESSION['uNum'])){
                                     <th>章节</th>
                                     <th>标题</th>
                                     <th>描述</th>
+                                    <th>备注</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -78,7 +79,7 @@ if(!isset($_SESSION['uNum'])){
                         </table>
 					</fieldset>
 				</div><!--End of span9------------------------------------------------------------------------------>
-
+                <iframe id="filedownload" style="display:none" href=""></iframe>
 			</div><!--End of row-->
 		</div><!--End of container-->
 		<script type="text/javascript" src="../js/jquery.min.js"></script>

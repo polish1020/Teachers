@@ -99,9 +99,9 @@ if(!isset($_SESSION['uNum'])){
                                 </div><!--End of form-group-->
                                 
                                 <div class="control-group">
-                                    <label for="lectFile" class="control-label">选择课件</label>
+                                    <label for="lectFile" class="control-label">课件</label>
                                     <div class="controls">
-                                        <input type="file" class="form-control popover-dismiss" id="lectFile" name="lectFile" value="" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择文件">
+                                        <input type="text" class="form-control popover-dismiss" id="lectFile" name="lectFile" value="" data-container="body" data-toggle="popover" data-placement="right" data-content="请选择文件" disabled>
                                     </div><!--End of controls-->
                                 </div><!--End of form-group-->
                                 
@@ -118,7 +118,7 @@ if(!isset($_SESSION['uNum'])){
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
-		<script type="text/javascript" src="./NewLecture.js"></script>
+		<script type="text/javascript" src="./LectureModify.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
         <script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
         

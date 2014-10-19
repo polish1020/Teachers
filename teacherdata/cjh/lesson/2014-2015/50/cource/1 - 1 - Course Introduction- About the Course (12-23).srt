@@ -1,0 +1,1249 @@
+1
+00:00:05,420 --> 00:00:05,420
+[MUSIC]
+
+2
+00:00:05,420 --> 00:00:09,178
+Ok, hello everyone welcome to the
+Programming Languages class.
+
+3
+00:00:09,178 --> 00:00:13,780
+I 'm Dan Grossman and I'm looking forward
+to having a great class with all of you.
+
+4
+00:00:13,780 --> 00:00:18,700
+And what i want to do is sort of natural,
+and this sort of first lecture is
+
+5
+00:00:18,700 --> 00:00:22,310
+just give you an overview of what the
+class is going to sort of be like.
+
+6
+00:00:22,310 --> 00:00:24,570
+And get you excited about what we're
+going to do.
+
+7
+00:00:24,570 --> 00:00:26,770
+And basically over the next 10 weeks, I
+hope that
+
+8
+00:00:26,770 --> 00:00:31,760
+we will, together, learn the fundamental
+concepts underneath programming languages.
+
+9
+00:00:31,760 --> 00:00:34,450
+So, I don't intend for this to be an easy
+course.
+
+10
+00:00:34,450 --> 00:00:37,170
+But I think it's something that with hard
+work, and patience,
+
+11
+00:00:37,170 --> 00:00:40,500
+and coming in with an open mind ready to
+learn new things.
+
+12
+00:00:40,500 --> 00:00:42,410
+it has the opportunity to make everyone a
+
+13
+00:00:42,410 --> 00:00:45,990
+better programmer than they came in before
+the course.
+
+14
+00:00:45,990 --> 00:00:47,580
+And in fact I think it will make you a
+
+15
+00:00:47,580 --> 00:00:51,400
+better programmer in programming languages
+we're not going to study at all.
+
+16
+00:00:51,400 --> 00:00:54,180
+And even in programming languages you
+already know.
+
+17
+00:00:54,180 --> 00:00:56,850
+So the idea is that we're going to learn
+
+18
+00:00:56,850 --> 00:00:59,870
+the concepts that come up in any
+programming language.
+
+19
+00:00:59,870 --> 00:01:01,920
+And get better at recognizing them
+
+20
+00:01:01,920 --> 00:01:05,520
+despite the surface level differences
+between languages.
+
+21
+00:01:05,520 --> 00:01:09,220
+So what tends to happen all the time when
+people look at a course like this.
+
+22
+00:01:09,220 --> 00:01:13,350
+Is they say, oh, that's the course that
+teaches ML, Racket, and Ruby.
+
+23
+00:01:13,350 --> 00:01:16,510
+Which are the three programming languages
+we're going to use.
+
+24
+00:01:16,510 --> 00:01:19,260
+But I really don't like that description
+of the course.
+
+25
+00:01:19,260 --> 00:01:22,250
+because the idea is that we're just going
+to use those languages
+
+26
+00:01:22,250 --> 00:01:26,810
+as vehicles to learn the concepts that
+come up in any programming language.
+
+27
+00:01:26,810 --> 00:01:30,350
+In any case, this video is not going to
+cover programming languages at all.
+
+28
+00:01:30,350 --> 00:01:33,060
+It's going to be more of the course
+mechanics, that sort of stuff.
+
+29
+00:01:33,060 --> 00:01:35,770
+Then the next one I'll do a little more of
+course introduction
+
+30
+00:01:35,770 --> 00:01:38,300
+that's programming-language specific and
+then we'll
+
+31
+00:01:38,300 --> 00:01:39,790
+get going into the course content.
+
+32
+00:01:41,480 --> 00:01:44,080
+Here's a real simple list of things you
+can do right now,
+
+33
+00:01:44,080 --> 00:01:47,710
+even before you get started on the first
+homework and things like that.
+
+34
+00:01:47,710 --> 00:01:50,850
+the obvious thing to do is get familiar
+with the course website.
+
+35
+00:01:50,850 --> 00:01:53,020
+How the different pieces are laid out.
+
+36
+00:01:53,020 --> 00:01:56,740
+if you have taken a Coursera course
+before, I think it'll be fairly familiar.
+
+37
+00:01:56,740 --> 00:01:58,840
+But we all do things a little bit
+differently.
+
+38
+00:01:58,840 --> 00:02:00,780
+And if not, I don't think you'll have too
+much trouble.
+
+39
+00:02:00,780 --> 00:02:02,860
+But take a few minutes.
+Look at the different sections.
+
+40
+00:02:02,860 --> 00:02:05,750
+Get started on the discussion board, that
+sort of thing.
+
+41
+00:02:05,750 --> 00:02:07,240
+Second, I hope you'll complete the
+beginning
+
+42
+00:02:07,240 --> 00:02:09,460
+of course survey, I think that'll be fun,
+
+43
+00:02:09,460 --> 00:02:12,740
+so that we can all find out more about the
+community that we're all participating in.
+
+44
+00:02:12,740 --> 00:02:14,830
+And it shouldn't take you any time.
+
+45
+00:02:14,830 --> 00:02:18,010
+And third, and this is probably the most
+time-consuming and important,
+
+46
+00:02:18,010 --> 00:02:21,260
+get the software installed that you need
+for the first homework.
+
+47
+00:02:21,260 --> 00:02:24,890
+We're going to be using an editor and a
+programming language and
+
+48
+00:02:24,890 --> 00:02:27,710
+a couple of tools that you may not be
+familiar with.
+
+49
+00:02:27,710 --> 00:02:29,820
+And it's a bit of a pain to get it all
+installed.
+
+50
+00:02:29,820 --> 00:02:33,680
+We've provided step by step instructions
+that you can just read through.
+
+51
+00:02:33,680 --> 00:02:38,060
+We've also provided some videos of me
+literally installing the same software
+
+52
+00:02:38,060 --> 00:02:40,360
+on Windows which may be helpful.
+
+53
+00:02:40,360 --> 00:02:42,280
+And this is just stuff that you may was
+well do now.
+
+54
+00:02:42,280 --> 00:02:44,880
+That is you wait until you're ready to
+start the homework.
+
+55
+00:02:44,880 --> 00:02:46,390
+You'll just find it more aggravating.
+
+56
+00:02:46,390 --> 00:02:48,700
+So it's a good thing to do early maybe
+after even just
+
+57
+00:02:48,700 --> 00:02:51,329
+watching this first video or the second
+one or something like that.
+
+58
+00:02:53,470 --> 00:02:55,550
+give you a brief overview of the sort of
+materials
+
+59
+00:02:55,550 --> 00:02:58,130
+that'll be available to you as you go
+through the course.
+
+60
+00:02:58,130 --> 00:03:00,700
+Obviously there will be lectures like
+this.
+
+61
+00:03:00,700 --> 00:03:04,610
+I also have written reading notes covering
+all the same material.
+
+62
+00:03:04,610 --> 00:03:06,830
+So you don't need to read these because
+they'll by
+
+63
+00:03:06,830 --> 00:03:09,910
+and large cover the same material that we
+cover here interactively.
+
+64
+00:03:09,910 --> 00:03:13,070
+With slides and writing code and with me
+talking.
+
+65
+00:03:13,070 --> 00:03:14,880
+but they can be really helpful if you want
+a more
+
+66
+00:03:14,880 --> 00:03:19,030
+precise explanation, or you just like to
+read a few sentences to
+
+67
+00:03:19,030 --> 00:03:20,920
+get exactly the point I'm trying to make.
+
+68
+00:03:20,920 --> 00:03:22,860
+And so I really encourage you to read
+those, and
+
+69
+00:03:22,860 --> 00:03:25,620
+will always post those together with the
+other lecture materials.
+
+70
+00:03:26,630 --> 00:03:31,940
+any code that I, show or write, or we go
+through in one of
+
+71
+00:03:31,940 --> 00:03:35,710
+the lectures, I'll post separately so that
+you can actually have the text file.
+
+72
+00:03:35,710 --> 00:03:39,750
+Rather than having to retype it or paste
+it out of a PowerPoint slide.
+
+73
+00:03:39,750 --> 00:03:41,410
+I will have homework assignments.
+
+74
+00:03:41,410 --> 00:03:44,070
+Those homework assignments are going to
+get graded both by scripts
+
+75
+00:03:44,070 --> 00:03:44,590
+we've written.
+
+76
+00:03:44,590 --> 00:03:46,550
+That are going to read through and, you
+know, run them
+
+77
+00:03:46,550 --> 00:03:49,160
+against tests and give you points and that
+sort of thing.
+
+78
+00:03:49,160 --> 00:03:52,010
+And we're also going to use some very
+simple pure assessment.
+
+79
+00:03:52,010 --> 00:03:55,150
+Meaning that you are going to have your
+assignment graded by a few
+
+80
+00:03:55,150 --> 00:03:58,120
+other students in the class, and you are
+going to grade a few.
+
+81
+00:03:58,120 --> 00:03:59,520
+This is going to be very simple.
+
+82
+00:03:59,520 --> 00:04:03,530
+It's going to be something like a rate on
+a one through five sort of thing.
+
+83
+00:04:03,530 --> 00:04:06,560
+And this helps me emphasize that it's not
+enough to just pass the test.
+
+84
+00:04:06,560 --> 00:04:09,720
+What we're trying to do is learn how to
+write software
+
+85
+00:04:09,720 --> 00:04:12,190
+in clean, elegant, beautiful ways.
+
+86
+00:04:12,190 --> 00:04:16,450
+And that's something that humans can
+evaluate much better than computers.
+
+87
+00:04:16,450 --> 00:04:18,230
+Also have a couple exams.
+
+88
+00:04:18,230 --> 00:04:20,670
+one about halfway through, and one at the
+end.
+
+89
+00:04:20,670 --> 00:04:23,010
+And that's because there's a number of
+concepts in this course
+
+90
+00:04:23,010 --> 00:04:26,750
+that I want you guys to learn and answer
+questions about.
+
+91
+00:04:26,750 --> 00:04:31,190
+that you can't really demonstrate your
+knowledge of by just writing programs.
+
+92
+00:04:31,190 --> 00:04:32,680
+So most of the homework will pretty much
+
+93
+00:04:32,680 --> 00:04:34,800
+be all programming, and then the exams
+will
+
+94
+00:04:34,800 --> 00:04:36,720
+ask some more other conceptual questions.
+
+95
+00:04:38,540 --> 00:04:40,860
+in terms of the homework, we'll probably
+have seven, so
+
+96
+00:04:40,860 --> 00:04:43,270
+there won't be one for every week of the
+course.
+
+97
+00:04:43,270 --> 00:04:45,850
+And I'll keep you apprised of how that is
+working out.
+
+98
+00:04:45,850 --> 00:04:48,310
+You should do them individually although
+of course you'll get help
+
+99
+00:04:48,310 --> 00:04:51,260
+on the discussion board and from fellow
+students as you need.
+
+100
+00:04:51,260 --> 00:04:53,430
+And the thing I always like to emphasize
+is, is if
+
+101
+00:04:53,430 --> 00:04:56,477
+you want to do them efficiently and learn
+the most from them.
+
+102
+00:04:56,477 --> 00:04:59,990
+the counter productive way to do it
+
+103
+00:04:59,990 --> 00:05:02,250
+is just try to get the right answer and
+crank out
+
+104
+00:05:02,250 --> 00:05:04,790
+the code as quickly as you can and turn it
+in.
+
+105
+00:05:04,790 --> 00:05:07,810
+usually, you'll actually find it takes
+less time.
+
+106
+00:05:07,810 --> 00:05:09,880
+If, when you approach a homework question.
+
+107
+00:05:09,880 --> 00:05:12,940
+You look at hey, what concept is this
+question
+
+108
+00:05:12,940 --> 00:05:15,630
+related to that we went through in the
+lectures?
+
+109
+00:05:15,630 --> 00:05:18,560
+Then write the code that pretty much has
+it working.
+
+110
+00:05:18,560 --> 00:05:22,300
+And then to make sure you got it, test
+your code.
+
+111
+00:05:22,300 --> 00:05:25,120
+And, even try some variations.
+Say well, I think this
+
+112
+00:05:25,120 --> 00:05:27,350
+is right, but if I change this around a
+little bit,
+
+113
+00:05:27,350 --> 00:05:30,270
+I'd bet it's wrong, and here's the test
+it's going to fail.
+
+114
+00:05:30,270 --> 00:05:32,390
+And I think if you do that, you'll get a
+lot more out of
+
+115
+00:05:32,390 --> 00:05:33,680
+the homework, and you'll be much more
+
+116
+00:05:33,680 --> 00:05:36,820
+confident that you have the right
+solutions.
+
+117
+00:05:36,820 --> 00:05:40,000
+Just this one more logistically or
+structural things, sometimes on
+
+118
+00:05:40,000 --> 00:05:43,100
+the homework, I'll have what I call
+challenge problems those
+
+119
+00:05:43,100 --> 00:05:45,590
+are just somewhat more difficult problems
+that those of you
+
+120
+00:05:45,590 --> 00:05:48,710
+who find the course a little bit easier
+might enjoy doing.
+
+121
+00:05:48,710 --> 00:05:50,610
+And that you can learn a lot more from.
+
+122
+00:05:50,610 --> 00:05:52,760
+But for the rest of you, you don't have to
+do them.
+
+123
+00:05:52,760 --> 00:05:55,150
+We'll make them worth just a small number
+of points so that
+
+124
+00:05:55,150 --> 00:05:59,280
+people who do them feel they get something
+tangible out of it.
+
+125
+00:05:59,280 --> 00:06:02,030
+but you are welcome to skip them, so you
+can think of them as optional.
+
+126
+00:06:04,180 --> 00:06:06,870
+Last sort of thing about the homeworks.
+
+127
+00:06:06,870 --> 00:06:10,250
+I've sort of learned from experience, that
+students are sometimes
+
+128
+00:06:10,250 --> 00:06:16,350
+surprised at how precisely and concisely
+my homework questions are worded.
+
+129
+00:06:16,350 --> 00:06:18,300
+I think that's because I'm a computer
+scientist, and
+
+130
+00:06:18,300 --> 00:06:20,880
+I tend to write English the way I write
+code.
+
+131
+00:06:20,880 --> 00:06:22,570
+Which is I put exactly what needs to
+
+132
+00:06:22,570 --> 00:06:25,750
+be there and make sure it's defined very
+precisely.
+
+133
+00:06:25,750 --> 00:06:29,340
+And I think for technical questions like a
+homework problem that's the great
+
+134
+00:06:29,340 --> 00:06:30,900
+way to do it.
+
+135
+00:06:30,900 --> 00:06:35,070
+but what this means is that if you're use
+to sort of standard internet
+
+136
+00:06:35,070 --> 00:06:38,860
+work where you just skim things and try to
+get the high level idea.
+
+137
+00:06:38,860 --> 00:06:40,780
+You might find them very frustrating.
+
+138
+00:06:40,780 --> 00:06:44,835
+So I encourage you when you get into
+especially the first homework assignment.
+
+139
+00:06:44,835 --> 00:06:47,320
+I've really try to trust that each word
+and
+
+140
+00:06:47,320 --> 00:06:50,360
+phrase there and each question is there
+for a reason.
+
+141
+00:06:50,360 --> 00:06:51,395
+Read it all the way through.
+
+142
+00:06:51,395 --> 00:06:53,500
+I've try to keep them as short as
+possible.
+
+143
+00:06:53,500 --> 00:06:54,630
+Just a couple of pages
+
+144
+00:06:54,630 --> 00:06:56,170
+long usually.
+
+145
+00:06:56,170 --> 00:06:57,860
+and I think you'll find them a lot easier
+to
+
+146
+00:06:57,860 --> 00:07:02,350
+approach if you take a sort of no skimming
+allowed view.
+
+147
+00:07:02,350 --> 00:07:05,530
+Now that doesn't mean that the homework
+will always be crystal-clear to you.
+
+148
+00:07:05,530 --> 00:07:08,890
+So, if you are confused, that's what the
+discussion board is for.
+
+149
+00:07:08,890 --> 00:07:12,220
+I may have even made a mistake, although I
+certainly don't intend to.
+
+150
+00:07:12,220 --> 00:07:14,970
+And, what typically happens, is you think
+a
+
+151
+00:07:14,970 --> 00:07:18,090
+homework question is very confusing in how
+it's worded.
+
+152
+00:07:18,090 --> 00:07:19,730
+But then after you do it, if you go
+
+153
+00:07:19,730 --> 00:07:21,780
+back and read the question again.
+
+154
+00:07:21,780 --> 00:07:26,510
+you'll see, oh that's not confusing at all
+maybe I was the one that was confused.
+
+155
+00:07:26,510 --> 00:07:28,380
+and that's how you learn the material, and
+I'm
+
+156
+00:07:28,380 --> 00:07:31,030
+looking forward to exploring that process
+with all of you.
+
+157
+00:07:32,810 --> 00:07:35,340
+a few other things that we'll do in the
+class
+
+158
+00:07:35,340 --> 00:07:37,880
+I'll try to put on the web page everything
+you need.
+
+159
+00:07:37,880 --> 00:07:40,230
+But when your're learning new programming
+languages, learning new
+
+160
+00:07:40,230 --> 00:07:43,200
+ideas, you sometimes have to look up
+details elsewhere.
+
+161
+00:07:43,200 --> 00:07:44,420
+I won't do that on purpose.
+
+162
+00:07:44,420 --> 00:07:44,940
+But you also
+
+163
+00:07:44,940 --> 00:07:47,470
+shouldn't be surprised if you find
+yourself looking up some
+
+164
+00:07:47,470 --> 00:07:50,690
+language feature that's not covered in the
+lecture or something.
+
+165
+00:07:50,690 --> 00:07:54,000
+I, and occasionally I'll have some
+optional material, some offshoots where
+
+166
+00:07:54,000 --> 00:07:58,340
+I'll say here's a little video that if
+know say C programming.
+
+167
+00:07:58,340 --> 00:08:01,950
+you might appreciate this connection with
+something you already know.
+
+168
+00:08:01,950 --> 00:08:03,830
+there's a small group of TAs that are
+mostly
+
+169
+00:08:03,830 --> 00:08:05,990
+behind the scenes, but we'll see how the
+course goes.
+
+170
+00:08:05,990 --> 00:08:09,960
+And maybe they'll do some, video question
+answering or something so that they can
+
+171
+00:08:09,960 --> 00:08:11,640
+have some of the fun tool.
+
+172
+00:08:11,640 --> 00:08:15,360
+And the bottom line is I just hope this is
+a great adventure for all of us.
+
+173
+00:08:15,360 --> 00:08:19,330
+you know I hope to really create an
+active, energetic community.
+
+174
+00:08:19,330 --> 00:08:23,660
+I hope to share with you My passion and my
+excitement for programming
+
+175
+00:08:23,660 --> 00:08:27,440
+languages is my favorite class in the
+world, which is maybe not too surprising.
+
+176
+00:08:27,440 --> 00:08:31,820
+That that's the one I chose to create for
+this Coursera environment.
+
+177
+00:08:31,820 --> 00:08:35,530
+And I actually have a now not so secret
+goal, which is.
+
+178
+00:08:35,530 --> 00:08:38,830
+It's well known for these classes that
+only a small percentage of students
+
+179
+00:08:38,830 --> 00:08:42,650
+who start the course stick with it all the
+way through and finish it.
+
+180
+00:08:42,650 --> 00:08:44,330
+And, and I hope we set records for that.
+
+181
+00:08:44,330 --> 00:08:46,250
+I'm not going to make the class easy.
+
+182
+00:08:46,250 --> 00:08:48,010
+I hope it's challenging because that's
+what
+
+183
+00:08:48,010 --> 00:08:50,040
+I think will actually keep you engaged.
+
+184
+00:08:50,040 --> 00:08:54,160
+But I would really love for people to look
+at this community we're creating ten
+
+185
+00:08:54,160 --> 00:08:57,450
+weeks from now and say, wow, that was,
+that was one of the best ones.
+
+186
+00:08:57,450 --> 00:09:00,620
+How did they do it I, I, I hope more
+courses are like
+
+187
+00:09:00,620 --> 00:09:02,800
+that and let's see if we can work together
+to make that happen.
+
+188
+00:09:04,540 --> 00:09:04,730
+Okay.
+
+189
+00:09:04,730 --> 00:09:07,560
+So at this point you are welcome to stop
+watching this video.
+
+190
+00:09:07,560 --> 00:09:10,870
+I've covered what I need to cover for the
+course.
+
+191
+00:09:10,870 --> 00:09:12,410
+But I thought if your going to spend all
+these
+
+192
+00:09:12,410 --> 00:09:15,460
+hours over the next couple months
+listening to me.
+
+193
+00:09:15,460 --> 00:09:17,310
+you might like to know a little bit more
+about me.
+
+194
+00:09:17,310 --> 00:09:20,640
+Just like I would be very curious to learn
+a little bit more about you.
+
+195
+00:09:20,640 --> 00:09:22,270
+At least from filling out the online
+
+196
+00:09:22,270 --> 00:09:24,420
+survey so I can get some aggregate
+information.
+
+197
+00:09:24,420 --> 00:09:25,630
+So this is just for fun
+
+198
+00:09:25,630 --> 00:09:26,370
+if your curious.
+
+199
+00:09:27,830 --> 00:09:30,420
+This is my country, this is the United
+States, I grew up
+
+200
+00:09:30,420 --> 00:09:32,870
+right in the middle of it until I was 18
+years old.
+
+201
+00:09:32,870 --> 00:09:35,450
+I lived in the suburbs of St. Louis,
+Missouri.
+
+202
+00:09:35,450 --> 00:09:38,320
+After that, I went off to college in
+Houston, Texas.
+
+203
+00:09:38,320 --> 00:09:40,320
+I loved going to Rice University.
+
+204
+00:09:40,320 --> 00:09:42,300
+I really miss the burritos, that's
+probably
+
+205
+00:09:42,300 --> 00:09:44,420
+my favorite thing about living in Texas.
+
+206
+00:09:44,420 --> 00:09:47,910
+After that I went and got a PhD at Cornell
+University in Ithica, New York.
+
+207
+00:09:47,910 --> 00:09:49,020
+It's a small town.
+
+208
+00:09:49,020 --> 00:09:50,570
+If you're not familiar with New York
+State,
+
+209
+00:09:50,570 --> 00:09:52,840
+that's a 4 and a half hour drive from New
+York City.
+
+210
+00:09:52,840 --> 00:09:54,980
+So it's actually a small town.
+
+211
+00:09:54,980 --> 00:09:57,150
+quite a distance from the larger cities.
+
+212
+00:09:57,150 --> 00:09:58,910
+And then in 2003, I moved to Seattle.
+
+213
+00:09:58,910 --> 00:10:01,570
+Which is the, my favorite place that I've
+ever lived in.
+
+214
+00:10:01,570 --> 00:10:05,450
+And I've been a faculty member at the
+University of Washington since then.
+
+215
+00:10:05,450 --> 00:10:08,740
+A little bit about my research and
+teaching and what
+
+216
+00:10:08,740 --> 00:10:12,330
+I do, I do consider myself a programming
+languages person.
+
+217
+00:10:12,330 --> 00:10:15,380
+But a bit of an applied one, or a little
+bit of a strange one.
+
+218
+00:10:15,380 --> 00:10:15,640
+Where what
+
+219
+00:10:15,640 --> 00:10:20,020
+I like to do is take the fundamental
+beauty of programming languages.
+
+220
+00:10:20,020 --> 00:10:22,540
+Things like the functional languages and
+type systems
+
+221
+00:10:22,540 --> 00:10:24,850
+that we're actually going to study in this
+course.
+
+222
+00:10:24,850 --> 00:10:28,520
+And instead of necessarily working to make
+them better, I try
+
+223
+00:10:28,520 --> 00:10:33,200
+to take the ideas behind them and apply
+them to other areas.
+
+224
+00:10:33,200 --> 00:10:36,380
+Areas where you might not expect them to
+be as applicable.
+
+225
+00:10:36,380 --> 00:10:37,760
+So I have worked a lot over the last
+
+226
+00:10:37,760 --> 00:10:41,290
+few years in trying to make multi-threaded
+programming.uh, easier.
+
+227
+00:10:41,290 --> 00:10:44,910
+So that it's, you can more effectively and
+efficiently program,
+
+228
+00:10:44,910 --> 00:10:49,040
+the multicore chips that are becoming
+ubiquitus in the computing industry.
+
+229
+00:10:49,040 --> 00:10:53,460
+I'm now working a bit on how you can
+better write software that' s more
+
+230
+00:10:53,460 --> 00:10:55,870
+energy efficient so batteries last longer
+and
+
+231
+00:10:55,870 --> 00:10:58,620
+you spend less money on your power bill.
+
+232
+00:10:58,620 --> 00:11:01,840
+I've worked on other things a bit, like
+web programming
+
+233
+00:11:01,840 --> 00:11:06,090
+or, dealing with programs that process
+massive amounts of data.
+
+234
+00:11:06,090 --> 00:11:06,300
+And this
+
+235
+00:11:06,300 --> 00:11:09,210
+is really just like the, the way I like to
+operate.
+
+236
+00:11:09,210 --> 00:11:11,170
+That I like to collaborate with others
+that maybe
+
+237
+00:11:11,170 --> 00:11:13,740
+don't have as much of a programming
+languages background.
+
+238
+00:11:13,740 --> 00:11:17,610
+And then I learn from them some of the
+real world needs that they have.
+
+239
+00:11:17,610 --> 00:11:19,980
+And, and somehow we, we combine to, to
+make
+
+240
+00:11:19,980 --> 00:11:22,149
+progress and, and to make computing and
+software better.
+
+241
+00:11:23,540 --> 00:11:25,540
+outside of that, I don't spend all my
+
+242
+00:11:25,540 --> 00:11:28,990
+time sitting inside recording videos and
+doing research.
+
+243
+00:11:28,990 --> 00:11:31,370
+I love to go hiking, this is a picture of
+me from
+
+244
+00:11:31,370 --> 00:11:33,190
+up in Montana last summer.
+
+245
+00:11:33,190 --> 00:11:36,100
+About once a week, I go and play ice
+hockey.
+
+246
+00:11:36,100 --> 00:11:37,860
+You can't tell this is me at all, but that
+actually
+
+247
+00:11:37,860 --> 00:11:40,380
+is me under the gear there in the front of
+the picture.
+
+248
+00:11:40,380 --> 00:11:43,770
+I love riding my bike, this is me
+finishing up a 200 mile
+
+249
+00:11:43,770 --> 00:11:48,910
+or 320 kilometer bike ride from Seattle to
+Portland, a couple summers ago.
+
+250
+00:11:48,910 --> 00:11:52,120
+And if that's not enough sort of cute, fun
+pictures.
+
+251
+00:11:52,120 --> 00:11:57,640
+this is the dog I live with, and her name
+is Red Dog and she's amazingly awesome.
+
+252
+00:11:57,640 --> 00:11:59,610
+Okay I also like to travel.
+
+253
+00:11:59,610 --> 00:12:04,150
+Here's a list of countries I visited,
+ranked in order from smallest to largest.
+
+254
+00:12:04,150 --> 00:12:06,190
+So I'll be curious to see if we have
+students
+
+255
+00:12:06,190 --> 00:12:10,390
+in class from most or possibly even all of
+these countries.
+
+256
+00:12:10,390 --> 00:12:12,160
+I also traveled all over the United
+States.
+
+257
+00:12:12,160 --> 00:12:13,880
+I am missing three states, I'm still
+
+258
+00:12:13,880 --> 00:12:16,270
+hoping to get to Alaska Delaware and
+Hawaii.
+
+259
+00:12:16,270 --> 00:12:18,570
+So, welcome.
+That's a little bit about me.
+
+260
+00:12:18,570 --> 00:12:20,620
+Remember to tell me a little bit about
+you.
+
+261
+00:12:20,620 --> 00:12:23,310
+And in the next video, we'll get started
+on programming languages.
+

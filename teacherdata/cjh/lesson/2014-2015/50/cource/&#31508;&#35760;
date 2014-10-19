@@ -1,0 +1,81 @@
+<<<<<<<<<    History of PPL  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+LOGO 起源于LISP
+Fortran 第一个高级语言，比汇编多变量的概念，非结构化
+PDP11大端
+LISP Functional Programming, makeup-language
+ALGOL之前的都是指令式编程
+ALGOL 一条语句里面可以包含其他语句，这就是结构化程序设计
+正交：任意种有意义的概念都可以两两组合都是可能的
+Procedure in C is 指针
+1958年以后的语言受ALGOL的影响
+Timesharing：BASIC
+PL/I都是伪指令，第一种可移植的底层语言
+SIMULA：Beginning of Data Abstraction,仿真，提出Class的概念
+新语言，Ruby后端，Javascript前段端，PHP后端，LUA游戏引擎
+Smalltalk
+Prolog推理式
+What make a good PL?
+    Readability
+    Writability
+    Reliability
+    Cost
+Rule：有人会用，要做的东西只能用它，用这个语言会比较好
+
+
+<<<<<<<<<    Syntax  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Syntax语法，语言，程序单元，陈述的组织方式
+Semantics语义，要表达的意思
+What is a language,一组句子
+学表达法，在什么场景该怎么说，不要说自己没听到过的话，不要自己组合语句。
+汉子主要表意，不是表音，
+alphabet of C
+字母表：语言的基本成分
+Checking syntax of a sentence
+Try to match the input sentence with the structure of the language
+parse tree
+context-free languages	
+BNF
+    lexeme语素，不可变化
+    token标记，可变化
+    The set of tokens and lexemes (terminals终结符)
+    The set of non-terminals (非终结符)
+    The start symbol
+    The set of production rules
+LHS is a single non-terminal -> context-free
+RHS contains one or more terminals or non-terminals
+
+引入递归来表达循环
+Grammar and Parse Tree
+叶子都是token
+yacc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
