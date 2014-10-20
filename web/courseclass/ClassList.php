@@ -51,13 +51,10 @@ if(!isset($_SESSION['uNum'])){
 						    
 						</legend>
                             <ul class="nav nav-tabs">
-                                <li class="active"><a>课件管理</a></li>
-                                <li><a href="#">实验管理</a></li>
-                                <li><a href="#">作业管理</a></li>
-                                <li><a href="#">资料管理</a></li>
-                                <li><a href="#">题库管理</a></li>
-                                <li><a href="#">设置班级</a></li>
-                                <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >添加课件</button></div>
+                                <?php
+                                    include_once("../include/navibar_CourseConfig.inc");
+                                ?>
+                                <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >添加班级</button></div>
                             </ul>
                             
                         <table class="table table-striped table-hover">
@@ -65,10 +62,8 @@ if(!isset($_SESSION['uNum'])){
                             <thead>
                                 <tr id="tablehead">
                                     <th>ID</th>
-                                    <th>章节</th>
-                                    <th>标题</th>
+                                    <th>班级名称</th>
                                     <th>描述</th>
-                                    <th>备注</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -85,8 +80,9 @@ if(!isset($_SESSION['uNum'])){
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
-		<script type="text/javascript" src="./Lecture.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
+        <script type="text/javascript" src="./ClassList.js"></script>
+        <script type="text/javascript" src="./config.js"></script>
         <?php
             include_once("../include/footer.php");
         ?>

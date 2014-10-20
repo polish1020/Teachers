@@ -1,8 +1,9 @@
 $(document).ready(function(){
-    $("#index").attr("class","dropdown");
-	$("#course").attr("class","active dropdown");
+    changeClassAndUrl();
 	var GET = $.urlGet();
 	var ID = GET['lectID'];
+	var coID = GET["coID"];
+	changeCourseName(coID);
 	$.ajax({
 	    url: "CourseConfig.php",
 	    type: "POST",
@@ -115,8 +116,6 @@ $(function(){
         });
     });
 });
-
-
 
 
 

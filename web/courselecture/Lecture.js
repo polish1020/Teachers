@@ -1,8 +1,7 @@
 $(document).ready(function(){
-    $("#index").attr("class","dropdown");
-	$("#course").attr("class","active dropdown");
-    var GET = $.urlGet();
+	var GET = $.urlGet();
 	var ID = GET['coID'];
+	changeClassAndUrl();
     changeCourseName(ID);
     SearchLecture(ID)
 });
@@ -15,29 +14,6 @@ $(function(){
     });
 });
 
-function changeCourseName(ID){
-    
-    $.ajax({
-        url: "../course/CourseMangement.php",
-        type: "POST",
-        dataType: "json",
-        data: {Type: "SelectCourse", coID: ID},
-        error: function( XMLHttpRequest, textStatus, errorThrown ){
-            alert(errorThrown);
-            alert(textStatus);
-            alert(XMLHttpRequest.responseText);
-        },
-        success: function( data, textStatus ){
-            if ( data.Result == "Fail" ){
-                alert(data.Info);
-            }
-            else if ( data.Result == "Success" ){
-                //alert(data.Info);
-                $("#coName").html(data.CourseArray.coName+"("+data.CourseArray.coYear+data.CourseArray.coTerm+")");                        
-            }
-        }
-    });
-}
 
 function SearchLecture(ID){
     $.ajax({

@@ -86,7 +86,7 @@ function SearchCourse(){
 					});
                     $("#tablebody").delegate("td[id!='op']","click",function(){
 						var coID = $(this).attr("name");
-                        window.location.href = "../courseconfig/Lecture.php?coID="+coID+"";
+                        window.location.href = "../courselecture/Lecture.php?coID="+coID+"";
 					});
                     $("#tablebody").delegate("#delete"+i+"","click",function(){
 						var str = $(this).attr("name");
