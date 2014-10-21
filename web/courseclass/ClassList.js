@@ -65,13 +65,32 @@ function SearchClass(coID){
                         var classID = $(this).attr("name");                                                
                         window.location.href = "ClassModify.php?coID="+coID+"&classID="+classID+"";
                     });
+                    $("#tablebody").delegate("#delete"+i+"", "click", function(){
+                        var classID = $(this).attr("name");                                                
+                        //DeleteClass(classID,coID);
+                    });
                 }//End of for
             }
         }
     });
 }
 
-
+function DeleteClass(classID, coID){
+    $,ajax({
+        url: "ClassConfig.php",
+        type: "POST",
+        dataType: "json",
+        data: { Type: "DeleteClass", classID: classID },
+        error: function( XMLHttpRequest, textStatus, errorThrown ){
+	        alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);    
+	    },
+	    success: function( data, textStatus ){
+	        //
+	    }
+    });
+}
 
 
 

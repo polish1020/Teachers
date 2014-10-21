@@ -104,8 +104,6 @@ function DeleteLecture(ID,coID){
             }
         }
     });
-    
-    
 }
 
 function FileDownload(ID){
