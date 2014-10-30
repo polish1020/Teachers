@@ -71,7 +71,7 @@ function SearchClass(coID){
                     });
                     $("#tablebody").delegate("td[name='"+data.ClassArray[i].classID+"']", "click", function(){
                         var classID = $(this).attr("name");                                             
-                        window.location.href = "ClassStudentList.php?coID="+coID+"&classID="+classID+"";
+                        window.location.href = "../classstudent/ClassStudentList.php?coID="+coID+"&classID="+classID+"";
                     });                
                 }//End of for
             }

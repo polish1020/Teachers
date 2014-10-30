@@ -71,13 +71,10 @@ function changeClassName(ID){
                 alert(data.Info);
             }
             else if ( data.Result == "Success" ){
-                alert(data.Info);
-                $("#head").append("<span>"+data.ClassArray.className+"</span>");   
+                //alert(data.Info);
+                $("#class").html("<span>"+data.ClassArray.className+"</span>");   
             }
         }
     });
 }
-
-
-
 

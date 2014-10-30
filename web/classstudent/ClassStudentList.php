@@ -47,7 +47,7 @@ if(!isset($_SESSION['uNum'])){
 					
 					<fieldset>
 						<legend>
-						    <h3>配置课程信息：<span id="coName"></span></h3>
+						    <h3 id="head">配置课程信息：<span id="coName"></span>  班级：<span id="class"> </span></h3>
 						    
 						    <!--
 						<div class="btn-group">
@@ -72,13 +72,15 @@ if(!isset($_SESSION['uNum'])){
                             <button type="buton" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown">
                                 条件<span class="caret"></span>
                             </button>
-                            <button type="button" class="btn btn-default" id="ticket">学号</button>
+                            <button type="button" class="btn btn-default" id="ticket" name="">学号</button>
                             
                             <ul class="dropdown-menu" role="menu" id="changeticket">
                                 <div><li><a>姓名</a></li></div>
                                 <div><li><a>学号</a></li></div>
-                                <div><li><a>专业班级</a></li></div>
+                                <div><li><a>英文名</a></li></div>
+                                <div><li><a>电话</a></li></div>
                                 <div><li><a>QQ号码</a></li></div>
+                                <div><li><a>学院</a></li></div>
                  
                             </ul>
                         </div><!--End of btn-group-->
@@ -86,7 +88,7 @@ if(!isset($_SESSION['uNum'])){
                         
                         
                            
-                                    <input type="text" id="key" name="key" value="" >
+                                    <input type="text" id="key" name="key" value="" style="width: 100px">
                              
                         
                         
@@ -95,6 +97,10 @@ if(!isset($_SESSION['uNum'])){
                             <button type="button" class="btn btn-primary" id="search">筛选</button>
                             
                         </div><!--End of btn-group-->
+                        
+                        <div class="btn-group"><button type="button" class="btn btn-primary" id="addone" >添加学生</button></div>
+                        <input type="file" name="stufile" id="stufile">
+                        <div class="btn-group"><button type="button" class="btn btn-primary" id="addmore" >批量导入</button></div>
                         
                         <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="back" >返回班级列表</button></div>
                         
@@ -108,11 +114,11 @@ if(!isset($_SESSION['uNum'])){
                                     <th>ID</th>
                                     <th>学号</th>
                                     <th>姓名</th>
-                                    <th>密码</th>
+                                    <th>英文名</th>
                                     <th>联系电话</th>
-                                    <th>专业班级</th>
+                                    
                                     <th>QQ号码</th>
-                                    <th>Email</th>
+                                    <th>学院</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
@@ -130,7 +136,7 @@ if(!isset($_SESSION['uNum'])){
 		<script type="text/javascript" src="../js/site.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
         <script type="text/javascript" src="./ClassStudentList.js"></script>
-        <script type="text/javascript" src="./config.js"></script>
+        <script type="text/javascript" src="../js/config.js"></script>
         <?php
             include_once("../include/footer.php");
         ?>
