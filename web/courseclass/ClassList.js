@@ -66,9 +66,13 @@ function SearchClass(coID){
                         window.location.href = "ClassModify.php?coID="+coID+"&classID="+classID+"";
                     });
                     $("#tablebody").delegate("#delete"+i+"", "click", function(){
-                        var classID = $(this).attr("name");                                                
-                        //DeleteClass(classID,coID);
+                        var classID = $(this).attr("name");                                            
+                        DeleteClass(classID,coID);
                     });
+                    $("#tablebody").delegate("td[name='"+data.ClassArray[i].classID+"']", "click", function(){
+                        var classID = $(this).attr("name");                                             
+                        window.location.href = "ClassStudentList.php?coID="+coID+"&classID="+classID+"";
+                    });                
                 }//End of for
             }
         }
@@ -76,7 +80,7 @@ function SearchClass(coID){
 }
 
 function DeleteClass(classID, coID){
-    $,ajax({
+    $.ajax({
         url: "ClassConfig.php",
         type: "POST",
         dataType: "json",
@@ -87,7 +91,13 @@ function DeleteClass(classID, coID){
             alert(XMLHttpRequest.responseText);    
 	    },
 	    success: function( data, textStatus ){
-	        //
+	        if ( data.Result == "Fail" ){
+	            alert(data.Info);
+	        }
+	        else if ( data.Result == "Success" ){
+	            alert(data.Info);
+	            SearchClass(coID);
+	        }
 	    }
     });
 }

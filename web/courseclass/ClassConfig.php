@@ -81,16 +81,51 @@
             //删除班级同时删除所有学生课程关系，同时删除所有t_student中有而t_relclassstudent没有的学生
             //对于classID对应的每个学生，如果在relclassstudent没有其他的记录，则从t_student中删除该学生的记录
             //然后从t_relclassstudent中删掉所有classID对应的记录
-            $query = "delete from t_relclassstudent where classID = ".$classID."";
+            $query = "select * from t_relclassstudent where classID = ".$classID."";
             if ( !($res = mysql_query($query)) ){
                 $return['Result'] = "Fail";
-                $return['Info'] = "Delete student error";
+                $return['Info'] = "Select error: ".mysql_error();
             }
             else {
+                while ( $row = mysql_fetch_array($res) ){
+                    //对于每个class的学生，再次搜索relcalssstudent，若没有结果，则同时删除student里的该学生记录
+                    $studentID = $row['stuID'];
+                    $query = "select * from t_relclassstudent where stuID = ".$studentID." and classID!= ".$classID."";
+                    if ( !($stu = mysql_query($query)) ){
+                        $return['Result'] = "Fail";
+                        $return['Info'] = "select rel error: ".mysql_error();
+                    }
+                    else {
+                        if ( !mysql_fetch_array($stu) ){
+                            //如果不存在其他学生记录
+                            $query = "delete from t_student where stuID = ".$studentID."";
+                            if ( !($delstu = mysql_query($query)) ){
+                                $return['Result'] = "Fail";
+                                $return['Info'] = "Delete student error: ".mysql_error();
+                            }
+                            else {
+                                //删除成功
+                            }
+                        }
+                        else {
+                            //如果存在
+                        }
+                        //删除relclassstudent和class
+                        $query = "delete from t_relclassstudent where classID = ".$classID."";
+                        if ( !(mysql_query($query)) ){
+                            $return['Result'] = "Fail";
+                            $return['Info'] = "Delete rel error";
+                        }
+                        else {
+                            $return['Result'] = "Success";
+                            $return['Info'] = "Delete rel successfully";
+                        }
+                    }
+                }
                 $query = "delete from t_class where classID = ".$classID."";
                 if ( !($res = mysql_query($query)) ){
                     $return['Result'] = "Fail";
-                    $return['Info'] = "Delete error: ".mysql_error();
+                    $return['Info'] = "Delete class error: ".mysql_error();
                 }
                 else {
                     $return['Result'] = "Success";
