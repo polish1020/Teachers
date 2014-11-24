@@ -1,46 +1,42 @@
 <ul class="nav nav-list">
 	<li class="nav-header">
-		Links
+		常用链接
 	</li>
 	<li class="active">
-		<a href="index.htm"><i class="icon-white icon-home"></i> Dashboard</a>
+		<a href="http://localhost/Teachers/web/index/index_tea.php"><i class="icon-white icon-home"></i> 主页</a>
 	</li>
 	<li>
-		<a href="projects.htm"><i class="icon-folder-open"></i> Projects</a>
+		<a href="http://localhost/Teachers/web/course/CourseList.php"><i class="icon-folder-open"></i> 课程列表</a>
 	</li>
 	<li>
-		<a href="tasks.htm"><i class="icon-check"></i> Tasks</a>
+		<a href="tasks.htm"><i class="icon-check"></i> 公告列表</a>
 	</li>
 	<li>
-		<a href="messages.htm"><i class="icon-envelope"></i> Messages</a>
+		<a href="messages.htm"><i class="icon-envelope"></i> 用户查询</a>
 	</li>
-	<li>
-		<a href="files.htm"><i class="icon-file"></i> Files</a>
-	</li>
-	<li>
-		<a href="activity.htm"><i class="icon-list-alt"></i> Activity</a>
-	</li>
+
+
 	<li class="nav-header">
-		Your Account
+		账户设置
 	</li>
 	<li>
-		<a href="profile.htm"><i class="icon-user"></i> Profile</a>
+		<a href="profile.htm"><i class="icon-user"></i> 个人信息</a>
 	</li>
 	<li>
-		<a href="settings.htm"><i class="icon-cog"></i> Settings</a>
+		<a href="settings.htm"><i class="icon-cog"></i> 系统设置</a>
 	</li>
 	<li class="divider">
 	</li>
 	<li>
-		<a href="help.htm"><i class="icon-info-sign"></i> Help</a>
+		<a href="help.htm"><i class="icon-info-sign"></i> 帮助</a>
 	</li>
 	<li class="nav-header">
-		Bonus Templates
+		友情链接
 	</li>
 	<li>
-		<a href="gallery.htm"><i class="icon-picture"></i> Gallery</a>
+		<a href="http://jwbinfosys.zju.edu.cn/"><i class="icon-picture"></i> 教务网</a>
 	</li>
 	<li>
-		<a href="blank.htm"><i class="icon-stop"></i> Blank Slate</a>
+		<a href="http://www.cc98.org"><i class="icon-stop"></i> CC98</a>
 	</li>
 </ul>
