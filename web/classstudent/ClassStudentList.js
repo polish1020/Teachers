@@ -1,17 +1,19 @@
+var GET = $.urlGet();
+var coID = GET['coID'];
+var classID = GET['classID'];
+
 $(document).ready(function(){
-    var GET = $.urlGet();
-    var coID = GET["coID"];
-    var classID = GET['classID'];
+    
     changeClassAndUrl();
     changeCourseName(coID);
     changeClassName(classID);
+    $("#courseclass").addClass("active");
+    $("#courseclass > a").attr("href","#");
     searchStudent();
 });
 
 $(function(){
-    var GET = $.urlGet();
-	var coID = GET['coID'];
-	var classID = GET['classID'];
+    
 	$("#changeticket > div")
     .mouseover(function(){
         $("a",this).css({
@@ -43,9 +45,43 @@ $(function(){
     });
     $("#addmore").click(function(){
         //批量导入按钮
-        window.location.href = "AddStudentMore.php?coID="+coID+"&classID="+classID+"";
+        if ( $("#stufile").val() == "" ){
+            alert("请选择文件");
+            return;
+        }
+        readFile();
+        //window.location.href = "AddStudentMore.php?coID="+coID+"&classID="+classID+"&filepath="+$("#stufile").val();
     });
 });
+
+function readFile(){
+    
+    $.ajaxFileUpload({
+        url: "StudentConfig.php",
+        secureuri: false,
+        fileElementId: "stufile",
+        dataType: "json",
+        data: {Type: "AddStudentList", FileID: "stufile" },
+        error: function( XMLHttpRequest, textStatus, errorThrown ){
+            alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);
+        },
+        success: function(data, textStatus ){
+            if(data.Result == "Fail"){
+                alert(data.Info); 
+            }
+            else if(data.Result == "Success"){
+                window.location.href = encodeURI("AddStudentMore.php?coID="+coID+"&classID="+classID+"&filepath="+$("#stufile").val()+"&stulist="+data.StudentArray);
+            }
+            else {
+                alert("other");
+            }
+        }
+    });
+    return false;
+}
+
 
 function searchStudent(){
     var GET = $.urlGet();
@@ -106,7 +142,23 @@ function searchStudent(){
                             cursor: "default"
                         });
                     });
-                    
+                    $("#tablebody").delegate("#delete"+i+"", "click", function(){
+                        var stuID = $(this).attr("name");                                                
+                        deleteStudent(classID, stuID);
+                    });
+                    $("#tablebody").delegate("#reset"+i+"", "click", function(){
+                        var stuID = $(this).attr("name");                                                
+                        resetPassword(stuID);
+                    });
+                    $("#tablebody").delegate("#modify"+i+"", "click", function(){
+                        var stuID = $(this).attr("name");                                               
+                        window.location.href = "StudentModify.php?coID="+coID+"&classID="+classID+"&stuID="+stuID+"";
+                    });
+                    $("#tablebody").delegate("td[name='"+data.StudentArray[i].stuID+"']", "click", function(){
+                        //或者化成弹框显示所有详细信息
+                        var stuID = $(this).attr("name");                                             
+                        window.location.href = "StudentModify.php?coID="+coID+"&classID="+classID+"&stuID="+stuID+"";
+                    }); 
                 }
                     
             }
@@ -115,8 +167,62 @@ function searchStudent(){
 }
 
 
+function deleteStudent(classID, stuID){
+    $.ajax({
+        url: "StudentConfig.php",
+        type: "POST",
+        dataType: "json",
+        data: {Type: "DeleteStudent", stuID: stuID, classID: classID },
+        error: function( XMLHttpRequest, textStatus, errorThrown ){
+            alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);
+        },
+        success: function(data, textStatus ){
+            if(data.Result == "Fail"){
+                alert(data.Info); 
+            }
+            else if(data.Result == "Success"){
+                alert(data.Info);
+                $("#tablebody > tr[name="+stuID+"]").remove();
+            }
+            else if(data.Result == "None"){
+                alert(data.Info);
+            }
+            else{
+                alert("other");
+            }
+        }
+    });
+}
 
-
+function resetPassword(stuID){
+    $.ajax({
+        url: "StudentConfig.php",
+        type: "POST",
+        dataType: "json",
+        data: {Type: "ResetPassword", stuID: stuID },
+        error: function( XMLHttpRequest, textStatus, errorThrown ){
+            alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);
+        },
+        success: function(data, textStatus ){
+            if(data.Result == "Fail"){
+                alert(data.Info); 
+            }
+            else if(data.Result == "Success"){
+                alert(data.Info);
+            }
+            else if(data.Result == "None"){
+                alert(data.Info);
+            }
+            else{
+                alert("other");
+            }
+        }
+    });
+}
 
 
 

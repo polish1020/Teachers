@@ -1,6 +1,7 @@
 var GET = $.urlGet();
 var coID = GET["coID"];
 var classID = GET['classID'];
+var stuID = GET['stuID'];
 
 $(document).ready(function(){
     changeClassAndUrl();
@@ -15,6 +16,7 @@ $(document).ready(function(){
     $('.popover-dismiss').blur(function(){
 		$(this).popover('hide');
 	});
+	fillStudent();
 });
 
 $(function(){
@@ -25,6 +27,50 @@ $(function(){
         saveStudent();
     });
 });
+
+function fillStudent(){
+    $.ajax({
+        url: "StudentConfig.php",
+        type: "POST",
+        dataType: "json",
+        data: {Type: "SelectStudent", stuID: stuID },
+        error: function( XMLHttpRequest, textStatus, errorThrown ){
+            alert(errorThrown);
+            alert(textStatus);
+            alert(XMLHttpRequest.responseText);
+        },
+        success: function(data, textStatus ){
+            if(data.Result == "Fail"){
+                alert(data.Info); 
+            }
+            else if(data.Result == "Success"){
+                //fill the input
+                $("#stuNumber").val(data.StudentArray.stuNumber);
+                $("#stuName").val(data.StudentArray.stuName);
+                $("#stuEnName").val(data.StudentArray.stuEnName);
+                $("#telphone").val(data.StudentArray.telphone);
+                $("#stuQQNum").val(data.StudentArray.stuQQNum);
+                $("#stuFace").val(data.StudentArray.stuFace);
+                $("#deptName").val(data.StudentArray.deptName);
+                $("#stuDesc").val(data.StudentArray.stuDesc);
+                
+                if(data.StudentArray.stuStatus == "1"){
+                    $("#stuStatus").val("开启");
+                }
+                else{
+                    $("#stuStatus").val("关闭");
+                }
+                
+            }
+            else if(data.Result == "None"){
+                alert(data.Info);
+            }
+            else{
+                alert("other");
+            }
+        }
+    });
+}
 
 function saveStudent(){
         var stuNumber = $("#stuNumber").val();
@@ -85,15 +131,4 @@ function saveStudent(){
             }
         }
 }
-
-
-
-
-
-
-
-
-
-
-
 

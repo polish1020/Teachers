@@ -4,20 +4,4 @@ Teachers
 计算机学院基础教学中心网站
 
 
-编码规范：
-    html页面只有最基本的SESSION、include，要修改的部分只有<div class="span9"></div>部分,其他部分尽量不要修改，因为页面结构已经基本确定了，并且不能在这一部分直接使用php代码，所有html操作用Jquey实现。示范代码：/web/course/CourseModify.php
-    所有JS代码都通过<link>include进html页面,JS使用Jquery库 。示范代码：/web/course/CourseList.js
-    所有PHP后台操作通过JS的ajax通信。示范代码：/web/course/CourseMangement.php
-    使用Bootstrap模板排版，考虑基本的美观和排版。参考教程：http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html
-    数据库链接用include_once("../common/conn_database.php");和include_once("../common/closeconnection.php");
-    所有服务器上传服务器的文件放在/teacherdata/老师uNum比如cjh/
-    /doc/是文档，作为参考
-    10.71.45.100老师账号：郑扣根/zkg/111111,参考上面的功能实现
-    
-    
-说明：
-    老师会看代码的，所以所有规则尽量满足，然后保持可扩展和易阅读，注意必要的注释。
-    web/Course 是我的最近写的，就参照这个标准吧。
-    你写的公告和资源另起文件夹。
-    注意所有文件的命名，尽量明确，所有变量的命名也尽量统一，可以使用跟数据库表同样的的命名，可以参考我已经写的东西。
-    其他有什么问题直接联系，到时候再完善这个README，老师也很看重这个。
+

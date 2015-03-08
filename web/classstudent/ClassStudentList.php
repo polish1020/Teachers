@@ -99,7 +99,7 @@ if(!isset($_SESSION['uNum'])){
                         </div><!--End of btn-group-->
                         
                         <div class="btn-group"><button type="button" class="btn btn-primary" id="addone" >添加学生</button></div>
-                        <input type="file" name="stufile" id="stufile">
+                        <input type="file" name="stufile" id="stufile" value="">
                         <div class="btn-group"><button type="button" class="btn btn-primary" id="addmore" >批量导入</button></div>
                         
                         <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="back" >返回班级列表</button></div>
@@ -133,6 +133,7 @@ if(!isset($_SESSION['uNum'])){
 		</div><!--End of container-->
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
         <script type="text/javascript" src="./ClassStudentList.js"></script>

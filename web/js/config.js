@@ -6,7 +6,7 @@ function changeClassAndUrl(){
     $("#index").attr("class","dropdown");
 	$("#course").attr("class","active dropdown");
 	
-	$("#courseclass").addClass("active");
+	
 	
 	var url = $("#lect > a").attr("href") + "?coID=" + ID;
 	$("#lect > a").attr("href", url);
@@ -26,7 +26,7 @@ function changeClassAndUrl(){
 	var url = $("#courseclass > a").attr("href") + "?coID=" + ID;
 	$("#courseclass > a").attr("href", url);
 	
-	$("#courseclass > a").attr("href","#");
+	
 }
 
 function changeCourseName(ID){

@@ -47,40 +47,45 @@ if(!isset($_SESSION['uNum'])){
 					
 					<fieldset>
 						<legend>
-						    <h3 id="head">配置课程信息：<span id="coName"></span>  班级：<span id="class"> </span></h3>
-						    
+						    配置课程信息：<span id="coName"></span>
 						    
 						</legend>
-						
                             <ul class="nav nav-tabs">
                                 <?php
                                     include_once("../include/navibar_CourseConfig.inc");
                                 ?>
-                                <div class="btn-group pull-right"><button id="back" type="button" class="btn btn-primary" >返回学生列表</button></div>
+                                <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >新建实验</button></div>
                             </ul>
-                        <div id="stulist">
                             
-                        </div>
-                        <form class="form-horizontal" role="form">
-                            <div class="form-actions">
-								<button type="button" class="btn" id="backmodify">返回重新选择</button> 
-						        <button type="button" class="btn btn-primary" id="next">确认无误并导入</button>
-							</div>
-                        </form>
+                        <table class="table table-striped table-hover">
+                            <caption id="tabletitle"></caption>
+                            <thead>
+                                <tr id="tablehead">
+                                    <th>ID</th>
+                                    <th>实验</th>
+                                    <th>标题</th>
+                                    <th>描述</th>
+                                    <th>备注</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody id="tablebody">
+                            </tbody>                        
+                        </table>
 					</fieldset>
 				</div><!--End of span9------------------------------------------------------------------------------>
-
+                <iframe id="filedownload" style="display:none" href=""></iframe>
 			</div><!--End of row-->
 		</div><!--End of container-->
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
-        <script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
+        <script type="text/javascript" src="./LabList.js"></script>
         <script type="text/javascript" src="../js/config.js"></script>
-        <script type="text/javascript" src="./AddStudentMore.js"></script>
-        
-        
+		<script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
         <?php
             include_once("../include/footer.php");
         ?>

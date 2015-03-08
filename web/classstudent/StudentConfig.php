@@ -70,6 +70,219 @@
             $stuPasswd = "123456";
             $create_at = date("Y-m-d H:m:s", time());
             $online = 0;
+            $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online);
+            break;
+        }
+        
+        case "SelectStudent":{
+            $return = array( "Type" => "", "Result"=>"", "StudentArray"=>"", "Info"=>"" );
+            $return["Type"] = "SelectStudent";
+            $stuID = $_POST["stuID"];
+            $query = "select * from t_student where stuID = ".$stuID."";
+            if(!($res = mysql_query($query))){
+                $return["Info"] = "Select error: ".mysql_error();
+                $return["Result"] = "Fail";
+            }
+            
+            else if (!($row = mysql_fetch_array($res))){
+                $return["Result"] = "None";
+                $return["Info"] = "None of result";
+            }
+            else {
+                $return["StudentArray"] = $row;
+                $return['Result'] = "Success";
+                $return['Info'] = "Select student successfully";
+            }
+            break;
+        }
+        
+        case "AddStudentList":{
+            $return = array("Type" => "", "Result" => "", "Info" => "", "StudentArray" => "");
+            $return["Type"] = "AddStudentList";
+            $FileElementName = $_POST["FileID"];
+            $filename = $_FILES[$FileElementName]["name"];
+            if ( !empty($_FILES[$FileElementName]["error"]) ){
+                $return["Result"] = "Fail";
+                switch ( $_FILES[$FileElementName]["error"] ){
+                    case '1':{
+                        $return['Info'] = "Upload error: The uploaded file exceeds the upload_max_filesize directive in php.ini";
+                        break;
+                    } 
+                    case '2':{
+                        $return['Info'] = "Upload error: The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
+                        break;
+                    }
+                    case '3':{
+                        $return['Info'] = "Upload error: The uploaded file was only partially uploaded";
+                        break;
+                    }
+                    case '4':{
+                        $return['Info'] = "Upload error: No file was uploaded";
+                        break;
+                    }
+                    case '6':{
+                        $return['Info'] = "Upload error: Missing a temporary folder";
+                        break;
+                    }
+                    case '7':{
+                        $return['Info'] = "Upload error: Failed to write file to disk";
+                        break;
+                    }
+                    case '8':{
+                        $return['Info'] = "Upload error: File upload stopped by extension";
+                        break;
+                    }
+                    default : {
+                        $return['Info'] = "Upload error: No error code avaiable";
+                        break;
+                    }
+                }
+            }
+            else if(false) {
+            //文件限制
+            }
+            else {
+                //打开文件
+                $tmpfile = $_FILES[$FileElementName]["tmp_name"];
+                if (!file_exists($tmpfile) || !is_readable ($tmpfile)){
+                    $return["Result"] = "Fail";
+                    $return["Info"] = "No file uploaded";                
+                }
+                else {
+                    $studentlist = file($tmpfile);
+                    //$studentlist = "test";
+                    if($studentlist == false){
+                        $return["Result"] = "Fail";
+                        $return["Info"] = "Failed to open the tmp file.";
+                    }
+                    else {
+                        $return["Result"] = "Success"; 
+                        $return["StudentArray"] = $studentlist;
+                    }
+                }
+            }
+            break;
+        }
+
+        case "AddStudentMore": {
+            $return = array("Type" => "", "Result" => "", "Info" => "");            
+            $return["Type"] = "AddSudentMore";            
+            $classID = $_POST["classID"];
+            $stulist = $_POST["stulist"];            
+            for($i = 0; $i < count($stulist); $i++){
+                //每一个学生
+                $stu = split(" ", $stulist[$i]);
+                if($stu[0]&&$stu[1]){
+                    $stuNumber = $stu[0];
+                    $stuName = $stu[1];
+                    //$return["Info"] = $stuNumber . "/" . $stuName;
+                    $stuPasswd = $stuNumber;
+                    $create_at = date("Y-m-d H:m:s", time());
+                    $online = 0;
+                    $stuStatus = 1;
+                    $stuEnName = "";
+                    $telphone = "";
+                    $stuQQNum = "";
+                    $stuFace = "";
+                    $deptName = "";
+                    $stuDesc = "";
+                    $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online);
+                    if($return["Result"] == "Fail"){
+                        if($return['Info'] != "This student has existed"){
+                            $return["Info"] .= "学生：" . $stuNumber . "/" . $stuName;
+                            break;
+                        }
+                    }
+                }
+                else{
+                    $return["Result"] = "Fail";
+                    $return["Info"] = "failed to split the stu list";
+                }               
+            }
+            if($i = count($stulist)){
+                $return["Result"] = "Success";
+                $return["Info"] = "Add Student Successfully";
+            }
+            break;
+        }
+        
+        case "DeleteStudent":{
+            $return = array("Type" => "", "Result" => "", "Info" => "");            
+            $return["Type"] = "DeleteStudent";
+            $stuID = $_POST["stuID"];
+            $classID = $_POST["classID"];
+            //删除rel中的classID对应的stuID，如果rel中没有其他stuID的记录，则删除Student中的stuID
+            $query = "delete from t_relclassstudent where classID = " . $classID . " and stuID = " . $stuID . "";
+            if( !($res = mysql_query($query)) ){
+                $return["Result"] = "Fail";
+                $return["Info"] = "Delete relstudent error: ".mysql_error();
+            } 
+            else{
+                $query = "select * from t_relclassstudent where stuID = ".$stuID." and classID != ".$classID."";
+                if(!($res = mysql_query($query))){
+                    $return["Result"] = "Fail";
+                    $return["Info"] = "Select relstudent error:".mysql_error();
+                }    
+                else if( ($row = mysql_fetch_array($res)) ){
+                    //exists, do nothing
+                    $return["Result"] = "Success";
+                    $return["Info"] = "Delete student successfully";
+                }
+                else {
+                    //not exists, delete the student from t_student
+                    $query = "delete from t_student where stuID = ".$stuID;
+                    if(!mysql_query($query)){
+                        $return["Result"] = "Fail";
+                        $return["Info"] = "Delete student error: ".mysql_error();
+                    
+                    }
+                    else {
+                        $return["Result"] = "Success";
+                        $return["Info"] = "Delete student successfully";
+                    }
+                }
+            }
+            break;
+        }
+        
+        case "ResetPassword":{
+            $return = array("Type" => "", "Result" => "", "Info" => "");            
+            $return["Type"] = "ResetPassword";
+            $stuID = $_POST["stuID"];
+            $query = "select stuNumber from t_student where stuID = ".$stuID;
+            if(!($res = mysql_query($query))){
+                $return["Result"] = "Fail";
+                $return["Info"] = "Select Student error: ".mysql_error();
+            }
+            else if(!($row = mysql_fetch_array($res))){
+                $return["Result"] = "Fail";
+                $return["Info"] = "No such student";
+            }
+            else {
+                $stuNumber = $row["stuNumber"];
+                $query = "update t_student set stuPasswd = ".$stuNumber." where stuID = ".$stuID."";
+                if(!mysql_query($query)){
+                    $return["Result"] = "Fail";
+                    $return["Info"] = "Update Student error: ".mysql_error();
+                }
+                else {
+                    $return["Result"] = "Success";
+                    $return["Info"] = "重置密码成功，默认密码为学号";
+                }
+            }
+            break;
+        }
+        
+        default : break;
+    }
+    
+    echo json_encode($return);   
+?>
+
+
+<?php
+
+function addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online){
             $query = "select * from t_student where stuNumber = ".$stuNumber."";
             if ( !($res = mysql_query($query)) ){
                 $return['Result'] = "Fail";
@@ -112,17 +325,10 @@
                     $return['Info'] = "Success to add a student: ".$stuName;
                 }
             }
-            break;
-        }
-        
-        default : break;
-    }
-    echo json_encode($return);   
+            return $return;
+}
+
 ?>
-
-
-
-
 
 
 
