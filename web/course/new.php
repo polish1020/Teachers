@@ -14,6 +14,7 @@
     //获取common_class信息	
 	$coBH=$_POST['ThiscoBH'];
 	$coName=$_POST['ThiscoName'];
+    $coName = mysql_real_escape_string($coName);
 	$techID=$_SESSION['uid'];
 	$coYear=$_POST['ThiscoYear'];
 	$coTerm=$_POST['ThiscoTerm'];
@@ -22,6 +23,7 @@
 	$coNote=$_POST['ThiscoNote'];
 	$coPrecis=$_POST['ThiscoPrecis'];
 	$coCalender=$_POST['ThiscoCalender'];
+    $coCalender = mysql_real_escape_string($coCalender);
 	if($_POST['ThiscoStatus']==1){
         $coStatus=1;
     }

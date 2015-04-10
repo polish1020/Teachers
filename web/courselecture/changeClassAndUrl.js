@@ -16,8 +16,8 @@ function changeClassAndUrl(){
 	var url = $("#resource > a").attr("href") + "?coID=" + ID;
 	$("#resource > a").attr("href", url);
 	
-	var url = $("#exam > a").attr("href") + "?coID=" + ID;
-	$("#exam > a").attr("href", url);
+	var url = $("#sub > a").attr("href") + "?coID=" + ID;
+	$("#sub > a").attr("href", url);
 	
 	var url = $("#courseclass > a").attr("href") + "?coID=" + ID;
 	$("#courseclass > a").attr("href", url);

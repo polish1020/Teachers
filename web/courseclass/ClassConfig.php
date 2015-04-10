@@ -49,6 +49,7 @@
             $coID = $_POST["coID"];
             $className = $_POST["className"];
             $classDesc = $_POST["classDesc"];
+            $classDesc = mysql_real_escape_string($classDesc);
             $classStatus = $_POST["classStatus"];
             $createAt = date('Y-m-d H:m:s',time());
             $query = "select * from t_class where className = '".$className."' and coID = ".$coID."";

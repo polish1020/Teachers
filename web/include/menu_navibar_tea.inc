@@ -41,16 +41,16 @@
 			</ul>
 		</li>
 
-		<li class="dropdown">
+		<li class="dropdown" id="sublib">
 			<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">
 			试卷题库 <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="help.htm">试题管理</a>
+					<a href="../sublib/SubLib.php">试题管理</a>
 				</li>
 				<li class="divider"></li>
 				<li>
-					<a href="help.htm">试卷结构</a>
+					<a href="help.htm">试卷管理</a>
 				</li>
 				<li class="divider"></li>
 				<li>
