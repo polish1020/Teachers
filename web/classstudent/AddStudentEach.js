@@ -66,7 +66,7 @@ function saveStudent(){
                     url: "StudentConfig.php",
                     type: "POST",
                     dataType: "json",
-                    data: { Type: "AddStudentEach", stuNumber: stuNumber, stuName: stuName, stuEnName: stuEnName, telphone: telphone, stuQQNum: stuQQNum, stuFace: stuFace, deptName: deptName, stuDesc: stuDesc, stuStatus: stuStatus, classID: classID },
+                    data: { Type: "AddStudentEach", coID: coID, stuNumber: stuNumber, stuName: stuName, stuEnName: stuEnName, telphone: telphone, stuQQNum: stuQQNum, stuFace: stuFace, deptName: deptName, stuDesc: stuDesc, stuStatus: stuStatus, classID: classID },
                     error: function( XMLHttpRequest, textStatus, errorThrown ){
                         alert(errorThrown);
                         alert(textStatus);

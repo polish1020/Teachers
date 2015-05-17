@@ -10,17 +10,17 @@
 /*!40101 SET NAMES latin1 */;
 /*!40103 SET TIME_ZONE='SYSTEM' */;
 
-# Host: 10.77.30.35    Database: db_cjh
+# Host: 10.77.30.35    Database: db_luhq
 # ------------------------------------------------------
 # Server version 5.5.37-0ubuntu0.12.04.1
 
-/*!40101 SET NAMES gb2312 First change db_cjh to a new teacher dbname*/;
+/*!40101 SET NAMES gb2312*/;
 
-DROP DATABASE IF EXISTS `db_cjh`; 
+DROP DATABASE IF EXISTS `db_luhq`; 
 
-CREATE DATABASE `db_cjh` /*!40100 DEFAULT CHARACTER SET gb2312 */;
+CREATE DATABASE `db_luhq` /*!40100 DEFAULT CHARACTER SET gb2312 */;
 
-use db_cjh;
+use db_luhq;
 
 
 #
@@ -324,13 +324,13 @@ CREATE TABLE `T_schoollink` (
 DROP VIEW IF EXISTS `v_ExamSubInst`;
 CREATE VIEW `v_ExamSubInst` AS select `a`.`esDefID` AS `esDefID`,`a`.`esInsFileUrl` AS `esInsFileUrl`,`a`.`esInsUploadDate` AS `esInsUploadDate`,
 `b`.`examDefID` AS `examDefID`,`c`.`subID` AS `subID`,`c`.`coID` AS `coID`,`c`.`subBH` AS `subBH`,`c`.`subTitle` AS `subTitle`,`c`.`subCont` AS `subCont`,
-`c`.`subLx` AS `subLx`,`c`.`subInput` AS `subInput`,`c`.`subOutput` AS `subOutput`,`c`.`subStatus` AS `subStatus`,`c`.`subDesc` AS `subDesc`,'�ѽ�' AS `esUploadStatus` 
+`c`.`subLx` AS `subLx`,`c`.`subInput` AS `subInput`,`c`.`subOutput` AS `subOutput`,`c`.`subStatus` AS `subStatus`,`c`.`subDesc` AS `subDesc`,'ÒÑ½»' AS `esUploadStatus` 
 from ((`T_ExamSubInst` `a` join `T_ExamSubDef` `b`) join `T_Subject` `c`) 
 where ((`a`.`esDefID` = `b`.`esDefID`) and (`b`.`subID` = `c`.`subID`))
  union 
  select `a`.`esDefID` AS `esDefID`,'' AS `esInsFileUrl`,'' AS `esInsUploadDate`,`a`.`examDefID` AS `examDefID`,`b`.`subID` AS `subID`,
  `b`.`coID` AS `coID`,`b`.`subBH` AS `subBH`,`b`.`subTitle` AS `subTitle`,`b`.`subCont` AS `subCont`,`b`.`subLx` AS `subLx`,`b`.`subInput` AS `subInput`,
- `b`.`subOutput` AS `subOutput`,`b`.`subStatus` AS `subStatus`,`b`.`subDesc` AS `subDesc`,'δ��' AS `esUploadStatus` 
+ `b`.`subOutput` AS `subOutput`,`b`.`subStatus` AS `subStatus`,`b`.`subDesc` AS `subDesc`,'Î´½»' AS `esUploadStatus` 
  from (`T_ExamSubDef` `a` join `T_Subject` `b`) where ((`a`.`subID` = `b`.`subID`) 
  and (not(`a`.`esDefID` in (select `a`.`esDefID` from ((`T_ExamSubInst` `a` join `T_ExamSubDef` `b`) 
  join `T_Subject` `c`) where ((`a`.`esDefID` = `b`.`esDefID`) and (`b`.`subID` = `c`.`subID`))))));

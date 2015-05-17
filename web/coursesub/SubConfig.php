@@ -17,7 +17,7 @@
     $Type = $_POST["Type"];
     switch ($Type) {
     	case 'SearchSubItems': $return = searchSubItems();break;
-    	//case 'SaveSub': $return  = saveSub();break;
+    	case 'SaveSub': $return  = saveSub($uNum, $techID);break;
     	default: break;
     }
     echo json_encode($return);
@@ -57,7 +57,7 @@
 		return $return;
 	}
 
-/*	function saveSub(){
+	function saveSub($uNum, $techID){
 		$return = array( "Type" => "", "Result" => "", "Info" => "" );
 		$return['Type'] = "SaveSub";
 
@@ -67,14 +67,25 @@
 		$subCont = $_POST['subCont'];
 		$Answer = $_POST['Answer'];
 		$subTitle = $_POST['subTitle'];
-		$subDesc = $_POST['subDesc'];
+		$subDesc = '';
 		$subID  = 0;
-		$subCatID
+		$subCatID = 0;
 		$status = 1;
 		$subFlag = 0;
-		$creator = 0;
+		$creator = $uNum;
 
 
-		$query = 0;
-	}*/
+		$query = 'insert into t_sublib '
+		.'(coID, subType, subDifficulty, subCont, Answer, subTitle, subDesc, SubID, subCatID, Status, subFlag, creator)' 
+		.' values ('. $coID .', '. $subType .', '. $subDifficulty .', "'. $subCont .'", "'. $Answer .'", "'. $subTitle .'", "'. $subDesc .'", '
+		.''. $subID .', '. $subCatID .', '. $status .', '. $subFlag .', '. $techID .')';
+		if (!($res = mysql_query($query))) {
+			$return['Result'] = 'Fail';
+			$return['Info'] = 'Insert error: '. mysql_error(). $query;
+		} else {
+			$return['Result'] = 'Success';
+			$return['Info'] = 'Inser successfully';
+		}
+		return $return;
+	}
 ?>

@@ -105,17 +105,28 @@
                 $lectUrl = "../../teacherdata/".$uNum."/lesson/".$coYear."/".$coID."/cource/".$name."";
                 $lectCreateDate = date('Y-m-d H:m:s',time());
                 $lectStatus = $_POST["lectStatus"];
+                $lectFile = $name;
                 
-                $query = "insert into t_lecture ( lectNum, lectTitle, lectNote, lectDesc, lectUrl, lectCreateDate, lectStatus, coID ) values ( '".$lectNum."', '".$lectTitle."', '".$lectNote."', '".$lectDesc."', '".$lectUrl."', '".$lectCreateDate."', '".$lectStatus."', '".$coID."' )";
+                $query = "insert into t_lecture ( lectNum, lectTitle, lectNote, lectDesc, lectUrl, lectCreateDate, lectStatus, coID, lectFile ) values ( '".$lectNum."', '".$lectTitle."', '".$lectNote."', '".$lectDesc."', '".$lectUrl."', '".$lectCreateDate."', '".$lectStatus."', '".$coID."', '".$lectFile."' )";
                 if ( !($res = mysql_query($query)) ){
                     $return['Result'] = "FailInsert";
                     $return['Info'] = "Insert error: ".mysql_error();
                 }
                 else {
                     //store successfully
-                    move_uploaded_file($_FILES[$fileElementName]["tmp_name"], "../../teacherdata/".$uNum."/lesson/".$coYear."/".$coID."/cource/".$name."");
-                    $return['Result'] = "Success";
-                    $return['Info'] = "Add lecture successfully";                    
+                    $inserID = mysql_insert_id();
+                    if(move_uploaded_file($_FILES[$fileElementName]["tmp_name"], "../../teacherdata/".$uNum."/lesson/".$coYear."/".$coID."/cource/".$name."")){
+                        $return['Result'] = "Success";
+                        $return['Info'] = "Add lecture successfully";   
+                    } else {
+                        if(mysql_query('delete from t_lecture where lectID='.$inserID)){
+                            $return['Result'] = "FailMoveUpload";
+                            $return['Info'] = "Move upload error: ";
+                        }  else {
+                            $return['Result'] = "FailMoveUploadAndDelete";
+                            $return['Info'] = "Move upload and delete error ";
+                        } 
+                    }                
                 }
             }
             break;
@@ -149,11 +160,11 @@
                     if ( !($res = mysql_query($query)) ){
                         $return['Result'] = "Fail";
                         $return['Info'] = "Delete error: ".mysql_error();
-                    } 
+                    }
                     else {
                         $return['Result'] = "Success";
                         $return['Info']  = "Delete lecture successfully";
-                    }                    
+                    }
                 }
             }
             break;

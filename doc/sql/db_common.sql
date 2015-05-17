@@ -185,63 +185,8 @@ CREATE TABLE T_SubLib(
 	subContBak varchar(2000) NULL,
 	subDefDes varchar(200) NULL,
 	PRIMARY KEY(SID)
-)
+);
 
-
-
-CREATE TABLE [dbo].[T_PaperLib](
-	[PaperLibID] [int] IDENTITY(1,1) NOT NULL,
-	[PaperLibTitle] [varchar](60) NULL,
-	[PaperScore] [int] NULL,
-	[Status] [tinyint] NULL,
-	[PaperFlag] [tinyint] NULL,
-	[CourceID] [int] NULL,
-	[Creator] [int] NULL,
-	[PaperLibDesc] [varchar](100) NULL,
-	[ParentPaperLibID] [int] NULL,
-	[PaperNUM] [int] NULL,
-	[PaperLibID1] [int] NULL,
- CONSTRAINT [PK_T_PaperLib] PRIMARY KEY CLUSTERED 
-(
-	[PaperLibID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-CREATE TABLE [dbo].[T_PaperOption](
-	[POID] [int] IDENTITY(1,1) NOT NULL,
-	[POTitleDes] [varchar](200) NULL,
-	[PaperLibID] [int] NULL,
-	[SubTypeID] [int] NULL,
-	[getSubMode] [int] NULL,
-	[SortMode] [int] NULL,
-	[SubCount] [int] NULL,
-	[HighCount] [int] NULL,
-	[MidCount] [int] NULL,
-	[LowCount] [int] NULL,
-	[ThisScore] [decimal](9, 2) NULL,
-	[EveryScore] [decimal](9, 2) NULL,
-	[ThisOrder] [smallint] NULL,
-	[Status] [tinyint] NULL,
-	[SubTypeAlias] [varchar](50) NULL,
-	[GetSubOrder] [int] NULL,
- CONSTRAINT [PK_T_PaperOption] PRIMARY KEY CLUSTERED 
-(
-	[POID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-CREATE TABLE [dbo].[T_RelPaperSub](
-	[RelPSID] [int] IDENTITY(1,1) NOT NULL,
-	[PaperLibID] [int] NULL,
-	[ThisOrder] [int] NULL,
-	[Status] [tinyint] NULL,
-	[CourceID] [int] NULL,
-	[subID] [varchar](20) NULL,
- CONSTRAINT [PK_T_RelPaperSub] PRIMARY KEY CLUSTERED 
-(
-	[RelPSID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
 
 
 
@@ -257,8 +202,8 @@ CREATE VIEW `V_UserCourceInfo_01` AS
 
 /*This is for teacher cjh*/
 
-select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPWD`,
-`b`.`techID` AS `techID`,`t`.`techEnName`,`t`.`techName`,
+select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPasswd`,
+`b`.`techID` AS `techID`,`t`.`teaEnName`,`t`.`teaName`,
 `c`.`classID`,`c`.`className`,`b`.`coID`,`b`.`coName`,
 `b`.`coYear`,`b`.`coTerm` 
 from (((((
@@ -272,15 +217,15 @@ where ((`cc`.`coID` = `b`.`coID`)
 	and (`cc`.`classID` = `c`.`classID`) 
 	and (`cs`.`classID` = `c`.`classID`) 
 	and (`cs`.`stuID` = `a`.`stuID`) 
-	and (`b`.`techID` = `t`.`techID`))
+	and (`b`.`techID` = `t`.`teaID`))
 
  /*For every teacher, add a union*/
 union
 #
 #This if for teacher lhq
 #
-select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPWD`,
-`b`.`techID` AS `techID`,`t`.`techEnName`,`t`.`techName`,
+select `a`.`stuNumber`,`a`.`stuName`,`a`.`stuPasswd`,
+`b`.`techID` AS `techID`,`t`.`teaEnName`,`t`.`teaName`,
 `c`.`classID`,`c`.`className`,`b`.`coID`,`b`.`coName`,
 `b`.`coYear`,`b`.`coTerm` 
 from (((((
@@ -294,7 +239,7 @@ where ((`cc`.`coID` = `b`.`coID`)
 	and (`cc`.`classID` = `c`.`classID`) 
 	and (`cs`.`classID` = `c`.`classID`) 
 	and (`cs`.`stuID` = `a`.`stuID`) 
-	and (`b`.`techID` = `t`.`techID`));
+	and (`b`.`techID` = `t`.`teaID`));
 
 
  /*For every teacher, add a union*/

@@ -39,7 +39,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="help.htm">我的课程</a>
+							<a href="../studentcourse/courseList.php">我的课程</a>
 						</li>
 						
 					</ul>

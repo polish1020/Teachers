@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['uNum'])){
-	header("location: ../index.php");
-	exit;
-}
+include_once("../login/checklogintea.php");
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
@@ -21,7 +17,7 @@ if(!isset($_SESSION['uNum'])){
 	<body>
 		<div class="container">			
 			<div><img src="../image/logo.gif" style="width:100%"></div>
-			<!--菜单----------------------------------------------------------------------------------------->
+			<!--菜单-->
 			<?php 
 				if($_SESSION['utype']=="stu"){
 					include_once '../include/menu_navibar_stu.inc';
@@ -31,8 +27,8 @@ if(!isset($_SESSION['uNum'])){
 				}
 				echo "<script>document.getElementById('name').innerHTML='".$_SESSION['uName']."';</script>";
 			?>			
-			<div class="row">			
-				<!--left side  左侧导航列表--------------------------------------------------------------------->
+			<div class="row">
+				<!--left side  左侧导航列表-->
 				<div class="span3">
 					<div class="well" style="padding: 8px 0;">					
 						<!--login--><!--ul_list-->
@@ -42,7 +38,7 @@ if(!isset($_SESSION['uNum'])){
 					</div> <!--end of <div class="well" style="padding: 8px 0;">--> 
 				</div><!--end of <div class="span3">-->
 
-				<!--right side 右侧工作区--------------------------------------------------------------------------->
+				<!--right side 右侧工作区-->
 				<div class="span9">
 					<h1>课程列表</h1>
 					<fieldset>
@@ -103,7 +99,7 @@ if(!isset($_SESSION['uNum'])){
                         </table>
                     </div>
 					</fieldset>
-				</div><!--End of span9------------------------------------------------------------------------------>
+				</div><!--End of span9-->
 
 			</div><!--End of row-->
 		</div><!--End of container-->

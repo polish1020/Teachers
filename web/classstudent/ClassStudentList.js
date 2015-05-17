@@ -45,6 +45,7 @@ $(function(){
     });
     $("#addmore").click(function(){
         //批量导入按钮
+        console.log($("#stufile").val());
         if ( $("#stufile").val() == "" ){
             alert("请选择文件");
             return;
@@ -75,7 +76,7 @@ function readFile(){
                 window.location.href = encodeURI("AddStudentMore.php?coID="+coID+"&classID="+classID+"&filepath="+$("#stufile").val()+"&stulist="+data.StudentArray);
             }
             else {
-                alert("other");
+                alert(data);
             }
         }
     });

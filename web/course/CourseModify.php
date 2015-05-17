@@ -46,7 +46,9 @@ if(!isset($_SESSION['uNum'])){
 				<div class="span9">
 					<h1>修改课程信息</h1>
 					<fieldset>
-						<legend>编辑课程信息</legend>
+						<legend>编辑课程信息
+                            <div class="btn-group pull-right"><a href="CourseList.php"><button type="button" class="btn btn-primary" >返回课程列表</button></a></div>
+                        </legend>
                         <form class="form-horizontal" role="form">
 
                             <div class="control-group">

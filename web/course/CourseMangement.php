@@ -1,13 +1,10 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['uNum'])){
-	    header("location: ../index.php");
-	    exit;
-    }
-
+    
+    include_once("../login/checklogintea.php");
     include_once("../common/FileCopy.php");
     include_once("../common/FileDelete.php");
     include_once("../common/conn_database.php");
+
     $techID = $_SESSION["uid"];
     $uNum = $_SESSION["uNum"];
     mysql_select_db("db_".$uNum);
@@ -97,6 +94,7 @@
             $coID = $_POST["ID"];
             $coBH = $_POST["BH"];
             $coName = $_POST["Name"];
+            $coName = mysql_real_escape_string($coName);
             $coTerm = $_POST["Term"];
             $coDept = $_POST["Dept"];
             $coNote = $_POST["Note"];

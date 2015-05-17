@@ -61,11 +61,10 @@ if(!isset($_SESSION['uNum'])){
                             <caption id="tabletitle"></caption>
                             <thead>
                                 <tr id="tablehead">
-                                    <th>ID</th>
-                                    <th>实验</th>
                                     <th>标题</th>
+                                    <th>文件</th>
                                     <th>描述</th>
-                                    <th>备注</th>
+                                    <th>截止时间</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -86,6 +85,7 @@ if(!isset($_SESSION['uNum'])){
         <script type="text/javascript" src="./LabList.js"></script>
         <script type="text/javascript" src="../js/config.js"></script>
 		<script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
+		<script type="text/javascript" src="../js/jquery.pagination.js"></script>
         <?php
             include_once("../include/footer.php");
         ?>

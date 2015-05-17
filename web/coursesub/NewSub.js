@@ -14,7 +14,7 @@ $(document).ready(function(){
 		$(this).popover('hide');
 	});
 	$("#back").click(function(){
-        window.location.href = "SubList.php?coID="+ID+"";
+        window.location.href = "SubList.php?coID="+coID+"";
     });
     $("#save").click(saveSub);
 });
@@ -55,7 +55,7 @@ function saveSub(){
 		url: "SubConfig.php",
 		type: "POST",
 		dataType: "json",
-		data: { Type: "SaveSub", subType: subType, subCont: subCont, subDifficulty: subDifficulty, subTitle: subTitle, Answer: Answer },
+		data: { Type: "SaveSub", subType: subType, subCont: subCont, subDifficulty: subDifficulty, subTitle: subTitle, Answer: Answer, coID: coID },
 		error: function( XMLHttpRequest, textStatus, errorThrown ){
 			alert(errorThrown);
             alert(textStatus);
@@ -67,6 +67,7 @@ function saveSub(){
 			}
 			else if(data.Result == "Success"){
 				alert(data.Info);
+				window.location.href = "SubList.php?coID="+coID+"";
 			}
 		}
 	});

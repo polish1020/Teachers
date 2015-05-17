@@ -1,6 +1,6 @@
 var GET = $.urlGet();
 var coID = GET['coID'];
-items_per_page = 10;
+var items_per_page = 10;
 
 $(document).ready(function(){
     changeClassAndUrl();
@@ -55,9 +55,9 @@ function pageSelectCallback( pageIndex, jq ){
 }
 
 function initPagination( items ){
-	if(items == 1){
+	if(items == -2){
 		$("#tablebody").empty().append('<p>搜索无结果！</p>');
-	} else if(items == 0) {
+	} else if(items == -1) {
 		alert("搜索失败，请重试");
 	} else {
 		window.Items = items;
@@ -118,9 +118,9 @@ function initItems(subType, subDifficulty){
 function ajaxSuccessCallback( data, textStatus ){
 	var items;
 	if(data.Result == "Fail"){
-		items = 0;
+		items = -1;
 	} else if(data.Result == "None") {
-		items = 1;
+		items = -2;
 	} else if(data.Result == "Success") {
 		items = data.Items;
 	}

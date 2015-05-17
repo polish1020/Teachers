@@ -7,9 +7,12 @@
 
     include_once("../common/FileCopy.php");
     include_once("../common/FileDelete.php");
+    include_once('../common/conn_database.php');
+    //$link=mysql_connect("10.77.30.12", "cstcadmin", "ccs87951254");
+    mysql_select_db("db_".$_SESSION["uNum"]);
     error_reporting(0);
     date_default_timezone_set('PRC');
-    $return = array("Info"=>"","Result"=>"");
+    $return = array("Info"=>"","Result"=>"","extra"=>"");
     
     //获取common_class信息	
 	$coBH=$_POST['ThiscoBH'];
@@ -51,12 +54,12 @@
 	echo "coStatus:".$coStatus."<br />";
 	echo "ccID:".$ccID."<br />";
 */
-    include_once('../common/conn_database.php');
-	//$link=mysql_connect("10.77.30.12", "cstcadmin", "ccs87951254");
-    mysql_select_db("db_".$_SESSION["uNum"]);
+    
     //用课程编号、教师ID、开课年份、开课学期、开课学院 来判断课程是否已经建立。
     //$techID = 10000000002;
+
     $query = 'select * from t_course where coName="'.$coName.'" and techID='.$techID.' and coYear="'.$coYear.'" and coTerm="'.$coTerm.'" and coDept="'.$coDept.'"';
+    $return["extra"] = $query;
     if(!($result=mysql_query($query))){
         $return['Result'] = "fail";
         $return['Info'] = "Search error : ".mysql_error();

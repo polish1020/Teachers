@@ -41,14 +41,25 @@
 	$res=mysql_query($query,$con);
 	if(!$res){
 		echo mysql_error();
+		//echo "<script language=javascript>alert('". mysql_error() ."');</script>";
 		exit;
 	}
 	if(mysql_num_rows($res)==0){
 		echo "<script language=javascript>alert('用户不存在');</script>";  
 		exit;
 	}//end if 	
-	$row=mysql_fetch_array($res);
+
+	$userList = array();
+	$userCount = mysql_num_rows($res);
+
+	for ($i = 0; $i < $userCount; $i++) {
+		$row = mysql_fetch_array($res);
+		$userList[$i] = $row;
+	}
+
+
 	$pwd1=$row["uPwd"];
+
 	if($pwd1!=$pwd)
 	{
 		echo "<script language=javascript>alert('密码不正确');</script>";
@@ -71,7 +82,7 @@
 
 	$name=$row["uName"];
 	$uid=$row["uID"];
-	$utyp=$row["uType"];
+	$utype=$row["uType"];
 	$telephone=$row["telephone"];
 
 	session_start();
@@ -80,18 +91,27 @@
 	$_SESSION["uid"]=$uid;
 	$_SESSION["uPwd"]=$pwd;
 	$_SESSION["uName"]=$name;
-	$_SESSION["utype"]=$utyp;
+	$_SESSION["utype"]=$utype;
 	$_SESSION["telephone"]=$telephone;
+
+
+	if ($utype == "stu") {
+		$_SESSION["teaID"] = $row["teaID"];
+		$_SESSION["coID"] = $row["coID"];
+		$_SESSION["classID"] = $row["classID"];
+		$_SESSION["userList"] = $userList;
+	}
+
 
 	include_once('../common/closeconnection.php');
 
-	if($utyp=="stu")
+	if($utype=="stu")
 		echo "<script language=javascript>window.top.location=\"../index/index_stu.php?uid=".$uid."\"; ;</script>";
 
-	else if($utyp=="tea")
+	else if($utype=="tea")
 		echo "<script language=javascript>window.top.location=\"../index/index_tea.php?uid=".$uid."\"; ;</script>";
 
-	else if($utyp=="adm")
+	else if($utype=="adm")
 		echo "<script language=javascript>window.top.location=\"../index/index_adm.php?uid=".$uid."\"; ;</script>";
 
 ?>

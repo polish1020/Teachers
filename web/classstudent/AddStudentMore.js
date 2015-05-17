@@ -38,7 +38,7 @@ function showStudentList(){
     var list = "<table class='table table-striped table-hover'><thead><tr><th>学号</th><th>姓名</th></tr></thead><tbody>";
     for(var i = 0; i < stulist.length; i++){
         var stu = stulist[i].split(" ");
-        list = list + "<tr><td>" + stu[0] + "</td><td> " + stu[1] + " </td></tr>";
+        list = list + "<tr><td>" + stu[0] + "</td><td> " + stu[1].replace(/\s+/g, '') + " </td></tr>";
     }
     list += "</tbody></table>"
 	$("#stulist").html(list);
@@ -51,7 +51,7 @@ function addStudentMore(stulist){
         url: "StudentConfig.php",
         type: "POST",
         dataType: "json",
-        data: { Type: "AddStudentMore", stulist: stulist, classID: classID },
+        data: { Type: "AddStudentMore", stulist: stulist, classID: classID, coID: coID },
         error: function( XMLHttpRequest, textStatus, errorThrown ){
             alert(errorThrown);
             alert(textStatus);

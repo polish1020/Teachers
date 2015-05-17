@@ -24,6 +24,7 @@ $(function(){
         var coNote = $("#coNote").val();
         var coCalender = $("#coCalender").val();
         var ccID = $("#coBH").attr("name");
+        console.log(coName);
         
         if($("#coStatus").val() == "开启"){
             var coStatus = 1;
@@ -107,6 +108,7 @@ $(function(){
                 alert(errorThrown);
             },
             success: function(data, textStatus){
+                console.log(data.extra);
                 if(data.Result=="fail"){
                     alert(data.Info);
                 }

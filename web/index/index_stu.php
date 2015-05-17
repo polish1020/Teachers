@@ -316,7 +316,7 @@ if(!isset($_SESSION['uNum'])||$_SESSION['utype']!="stu"){
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/site.js"></script>
 		<?php 
-			include_once './include/footer.php'; 
+			include_once '../include/footer.php'; 
 		?>
 	</body>
 </html>

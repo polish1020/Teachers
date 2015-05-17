@@ -15,14 +15,13 @@ if(!isset($_SESSION['uNum'])){
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
 		<link rel="stylesheet" href="../css/site.css">
-		
 		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	</head>
 
 	<body>
 		<div class="container">			
 			<div><img src="../image/logo.gif" style="width:100%"></div>
-			<!--菜单----------------------------------------------------------------------------------------->
+			<!--菜单-->
 			<?php 
 				if($_SESSION['utype']=="stu"){
 					include_once '../include/menu_navibar_stu.inc';
@@ -33,7 +32,7 @@ if(!isset($_SESSION['uNum'])){
 				echo "<script>document.getElementById('name').innerHTML='".$_SESSION['uName']."';</script>";
 			?>			
 			<div class="row">			
-				<!--left side  左侧导航列表--------------------------------------------------------------------->
+				<!--left side  左侧导航列表-->
 				<div class="span3">
 					<div class="well" style="padding: 8px 0;">					
 						<!--login--><!--ul_list-->
@@ -43,7 +42,7 @@ if(!isset($_SESSION['uNum'])){
 					</div> <!--end of <div class="well" style="padding: 8px 0;">--> 
 				</div><!--end of <div class="span3">-->
 
-				<!--right side 右侧工作区--------------------------------------------------------------------------->
+				<!--right side 右侧工作区-->
 				<div class="span9">
 					
 					<fieldset>
@@ -55,18 +54,17 @@ if(!isset($_SESSION['uNum'])){
                                 <?php
                                     include_once("../include/navibar_CourseConfig.inc");
                                 ?>
-                                <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >新建实验</button></div>
+                                <div class="btn-group pull-right"><button type="button" class="btn btn-primary" id="new" >新建资源</button></div>
                             </ul>
                             
                         <table class="table table-striped table-hover">
                             <caption id="tabletitle"></caption>
                             <thead>
                                 <tr id="tablehead">
-                                    <th>ID</th>
-                                    <th></th>
                                     <th>标题</th>
+                                    <th>文件</th>
                                     <th>描述</th>
-                                    <th>备注</th>
+                                    <th>是否公开</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -75,31 +73,19 @@ if(!isset($_SESSION['uNum'])){
                             <tbody id="tablebody">
                             </tbody>                        
                         </table>
-                        <div id="pager" >
-                        
-                        </div>
 					</fieldset>
-				</div><!--End of span9------------------------------------------------------------------------------>
+				</div><!--End of span9-->
                 <iframe id="filedownload" style="display:none" href=""></iframe>
 			</div><!--End of row-->
 		</div><!--End of container-->
-		<ul class="pagination">
-  <li><a href="#">&laquo;</a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li class="disabled"><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>
-</ul>
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/site.js"></script>
         <script type="text/javascript" src="../js/urlGet.js"></script>
-        <script type="text/javascript" src="./SubList.js"></script>
+        <script type="text/javascript" src="./ResourceList.js"></script>
         <script type="text/javascript" src="../js/config.js"></script>
-        <script type="text/javascript" src="../js/jquery.pager.js"></script>
 		<script type="text/javascript" src="../js/AjaxFileUploader/ajaxfileupload.js"></script>
+		<script type="text/javascript" src="../js/jquery.pagination.js"></script>
         <?php
             include_once("../include/footer.php");
         ?>

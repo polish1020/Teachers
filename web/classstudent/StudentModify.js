@@ -33,7 +33,7 @@ function fillStudent(){
         url: "StudentConfig.php",
         type: "POST",
         dataType: "json",
-        data: {Type: "SelectStudent", stuID: stuID },
+        data: {Type: "SelectStudent", stuID: stuID, classID: classID },
         error: function( XMLHttpRequest, textStatus, errorThrown ){
             alert(errorThrown);
             alert(textStatus);

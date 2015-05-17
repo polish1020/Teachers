@@ -32,8 +32,8 @@
                 $return['Info'] = "Search successfully";   
                 $return['Count'] = 0;
                 while ( $row = mysql_fetch_array($res) ){
-                    if ( $key == "" ) $query = "select * from t_student where stuID = ".$row['stuID']."";
-                    else $query = "select * from t_student where stuID = ".$row['stuID']." and ".$ticket." = ".$key."";
+                    if ( $key == "" ) $query = "select * from t_student where stuID = ".$row['stuID']." and stuClassID = ". $classID ."";
+                    else $query = "select * from t_student where stuID = ".$row['stuID']." and ".$ticket." = ".$key." and stuClassID = ". $classID ."";
                     if ( !($result = mysql_query($query)) ){
                         $return['Result'] = "Fail";
                         $return['Info'] = "Select student error: ".mysql_error();
@@ -70,7 +70,9 @@
             $stuPasswd = "123456";
             $create_at = date("Y-m-d H:m:s", time());
             $online = 0;
-            $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online);
+            $techID = $techID;
+            $courseID = $_POST["coID"];
+            $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online, $techID, $classID, $courseID );
             break;
         }
         
@@ -78,7 +80,8 @@
             $return = array( "Type" => "", "Result"=>"", "StudentArray"=>"", "Info"=>"" );
             $return["Type"] = "SelectStudent";
             $stuID = $_POST["stuID"];
-            $query = "select * from t_student where stuID = ".$stuID."";
+            $classID = $_POST["classID"];
+            $query = "select * from t_student where stuID = ".$stuID." and stuClassID = ". $classID ."";
             if(!($res = mysql_query($query))){
                 $return["Info"] = "Select error: ".mysql_error();
                 $return["Result"] = "Fail";
@@ -174,7 +177,7 @@
                 $stu = split(" ", $stulist[$i]);
                 if($stu[0]&&$stu[1]){
                     $stuNumber = $stu[0];
-                    $stuName = $stu[1];
+                    $stuName = trim($stu[1]);
                     //$return["Info"] = $stuNumber . "/" . $stuName;
                     $stuPasswd = $stuNumber;
                     $create_at = date("Y-m-d H:m:s", time());
@@ -186,7 +189,9 @@
                     $stuFace = "";
                     $deptName = "";
                     $stuDesc = "";
-                    $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online);
+                    $techID = $techID;
+                    $courseID = $_POST["coID"];
+                    $return = addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online, $techID, $classID, $courseID);
                     if($return["Result"] == "Fail"){
                         if($return['Info'] != "This student has existed"){
                             $return["Info"] .= "学生：" . $stuNumber . "/" . $stuName;
@@ -218,29 +223,17 @@
                 $return["Info"] = "Delete relstudent error: ".mysql_error();
             } 
             else{
-                $query = "select * from t_relclassstudent where stuID = ".$stuID." and classID != ".$classID."";
+                // $query = "select * from t_relclassstudent where stuID = ".$stuID." and classID != ".$classID."";
+                $query = "delete from t_student where stuClassID = " . $classID . " and stuID = " . $stuID . "";
                 if(!($res = mysql_query($query))){
                     $return["Result"] = "Fail";
-                    $return["Info"] = "Select relstudent error:".mysql_error();
+                    $return["Info"] = "delete student error:".mysql_error();
                 }    
-                else if( ($row = mysql_fetch_array($res)) ){
-                    //exists, do nothing
+                else {
                     $return["Result"] = "Success";
                     $return["Info"] = "Delete student successfully";
                 }
-                else {
-                    //not exists, delete the student from t_student
-                    $query = "delete from t_student where stuID = ".$stuID;
-                    if(!mysql_query($query)){
-                        $return["Result"] = "Fail";
-                        $return["Info"] = "Delete student error: ".mysql_error();
-                    
-                    }
-                    else {
-                        $return["Result"] = "Success";
-                        $return["Info"] = "Delete student successfully";
-                    }
-                }
+                
             }
             break;
         }
@@ -276,14 +269,12 @@
         default : break;
     }
     
-    echo json_encode($return);   
-?>
+    echo json_encode($return);
+    return;
 
 
-<?php
-
-function addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online){
-            $query = "select * from t_student where stuNumber = ".$stuNumber."";
+function addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telphone, $stuQQNum, $stuFace, $deptName, $stuDesc, $stuStatus, $stuPasswd, $create_at, $online, $techID, $classID, $courseID){
+            $query = "select * from t_student where stuNumber = ".$stuNumber." and stuClassID = ".$classID."";
             if ( !($res = mysql_query($query)) ){
                 $return['Result'] = "Fail";
                 $return['Info'] = "Select student error: ".mysql_error();
@@ -291,7 +282,7 @@ function addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telpho
             }
             else if ( !($stu = mysql_fetch_array($res)) ){
                 //没有次学生，新增学生，并更新ｒｅｌ
-                $query = "insert into t_student ( stuNumber, stuName, stuEnName, telphone, stuPasswd, create_at, stuStatus, deptName, stuFace, stuQQNum, stuDesc ) values ( ".$stuNumber.", '".$stuName."', '".$stuEnName."', '".$telphone."', '".$stuPasswd."', '".$create_at."', ".$stuStatus.", '".$deptName."', '".$stuFace."', '".$stuQQNum."', '".$stuDesc."' )";
+                $query = "insert into t_student ( stuNumber, stuName, stuEnName, telphone, stuPasswd, create_at, stuStatus, deptName, stuFace, stuQQNum, stuDesc, stuTeacherID, stuClassID, stuCourseID ) values ( ".$stuNumber.", '".$stuName."', '".$stuEnName."', '".$telphone."', '".$stuPasswd."', '".$create_at."', ".$stuStatus.", '".$deptName."', '".$stuFace."', '".$stuQQNum."', '".$stuDesc."', ".$techID.", ".$classID.", ".$courseID." )";
                 if ( !mysql_query($query) ){
                     $return['Result'] = "Fail";
                     $return['Info'] = "Insert student error: ".mysql_error();
@@ -299,13 +290,23 @@ function addStudent($return, $classID, $stuNumber, $stuName, $stuEnName, $telpho
                 }
                 else {
                     $stuID = mysql_insert_id();
+                    $return = updateRelClassStudent($return, $classID, $stuID, $stuName);
                 }
             }
             else {
                 //存在次学生，跟新ｒｅｌ
-                $stuID = $stu["stuID"];
+                //$stuID = $stu["stuID"];
+                $return["Result"] = "Fail";
+                $return["Info"] = "This student has existed";
             }
-            $query = "select * from t_relclassstudent where classID = ".$classID." and stuID = ".$stuID."";
+
+            // 更新rel
+            
+            return $return;
+}
+
+function updateRelClassStudent($return, $classID, $stuID, $stuName) {
+        $query = "select * from t_relclassstudent where classID = ".$classID." and stuID = ".$stuID."";
             if ( !($res = mysql_query($query)) ){
                 $return['Result'] = "Fail";
                 $return['Info'] = "Select rel error: ".mysql_error();

@@ -1,4 +1,6 @@
 <?php
+    error_reporting(E_ALL ^ E_DEPRECATED);
+
     $mysql_server_name="localhost"; //数据库服务器名称
     $mysql_username="root"; // 连接数据库用户名
     $mysql_password="xiaowei183"; // 连接数据库密码
